@@ -61,7 +61,7 @@ plugins:
 author:
   name   : "Trinitarian Believer"
   avatar : "/assets/images/bio-photo.jpg"
-  bio    : "Always seek the Holy Spirit to guide you and give you the understanding."
+  bio    : ""
   links:
     - label: "Website"
       icon: "fas fa-fw fa-link"

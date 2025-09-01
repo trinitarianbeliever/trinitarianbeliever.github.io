@@ -3,4 +3,7 @@ permalink: /about/
 title: "About"
 ---
 
-Learn from these articles, and always seek the Holy Spirit to guide you and give you the understanding. Then you can share with others so they can also learn.
+*But he was wounded for our transgressions, he was bruised for our iniquities:*
+*the chastisement of our peace was upon him; and with his stripes we are healed.*
+
+*- Prophet Isaiah*
