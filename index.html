@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trinitarian Believer</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <!-- Link to external stylesheet -->
+    <link rel="stylesheet" href="Style/style.css">
+</head>
+<body class="bg-gray-200 min-h-screen flex flex-col items-center p-4">
+
+    <!-- Main Content Container -->
+    <div class="w-full max-w-5xl bg-white rounded-xl shadow-xl p-6 lg:p-10 my-8">
+        
+        <!-- Site Name above the header -->
+        <div class="text-center py-4">
+            <a href="#" id="site-name-link" class="block">
+                <h1 class="text-4xl font-extrabold tracking-tight uppercase text-gradient site-name-font">Trinitarian Believer</h1>
+            </a>
+        </div>
+
+        <!-- Header Section -->
+        <header class="flex flex-col sm:flex-row justify-between items-center py-4">
+            <!-- Navigation on the right -->
+            <nav class="flex-1 flex justify-center">
+                <ul class="flex justify-center space-x-4">
+                    <li><a href="#" class="text-gray-600 font-semibold uppercase hover:text-blue-600 hover:underline transition" id="home-link">Home</a></li>
+                    <li><a href="#" class="text-gray-600 font-semibold uppercase hover:text-blue-600 hover:underline transition" id="categories-link">Categories</a></li>
+                    <li><a href="#" class="text-gray-600 font-semibold uppercase hover:text-blue-600 hover:underline transition" id="about-link">About</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Search Bar -->
+        <div class="flex justify-center mt-4">
+            <div class="relative w-full max-w-sm md:max-w-md">
+                <input type="text" id="search-input" placeholder="Search articles..." class="w-full pl-4 pr-10 py-2 border border-gray-300 rounded-full shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
+                <div class="absolute inset-y-0 right-3 flex items-center text-gray-400 pointer-events-none">
+                    <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content Area -->
+        <main class="mt-8 flex flex-col items-center">
+            <!-- Loading Indicator -->
+            <div id="loading-spinner" class="hidden">
+                <div class="w-12 h-12 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
+            </div>
+        
+            <!-- Container for blog posts -->
+            <div class="w-full max-w-2xl">
+                <!-- Container for displaying blog posts -->
+                <div id="posts-container" class="space-y-6">
+                    <!-- Blog posts will be dynamically loaded here -->
+                </div>
+
+                <!-- Pagination controls -->
+                <div id="pagination-container" class="flex justify-between items-center py-4 hidden">
+                    <button id="prev-btn" class="bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg shadow-lg hover:bg-blue-700 transition">Previous</button>
+                    <span id="page-info" class="text-gray-600 font-medium">Page 1 of 1</span>
+                    <button id="next-btn" class="bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg shadow-lg hover:bg-blue-700 transition">Next</button>
+                </div>
+                
+                <!-- Container for displaying the category list -->
+                <div id="category-list-container" class="hidden flex flex-col space-y-6">
+                    <h2 class="text-3xl font-extrabold text-gray-900 mb-6">Article Categories</h2>
+                    <div id="categories-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                        <!-- Categories will be dynamically loaded here -->
+                    </div>
+                     <!-- Pagination controls for categories -->
+                    <div id="category-pagination-container" class="flex justify-between items-center py-4 hidden">
+                        <button id="category-prev-btn" class="bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg shadow-lg hover:bg-blue-700 transition">Previous</button>
+                        <span id="category-page-info" class="text-gray-600 font-medium">Page 1 of 1</span>
+                        <button id="category-next-btn" class="bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg shadow-lg hover:bg-blue-700 transition">Next</button>
+                    </div>
+                </div>
+
+                <!-- Container for full post view -->
+                <div id="post-detail-container" class="hidden">
+                    <button id="back-to-home-btn" class="bg-gray-200 text-gray-800 font-semibold py-2 px-4 rounded-lg mb-6 hover:bg-gray-300 transition">
+                        &larr; Back to Home
+                    </button>
+                    <h2 id="post-detail-title" class="text-3xl font-bold text-gray-900 mb-2"></h2>
+                    <p id="post-detail-meta" class="text-gray-600 text-sm mb-4"></p>
+                    <div id="post-detail-content" class="text-gray-700 leading-relaxed"></div>
+                </div>
+
+                <!-- About Page Container -->
+                <div id="about-container" class="hidden text-center max-w-2xl mx-auto p-6">
+                    <p class="text-xl italic text-gray-700 leading-relaxed">
+                        "But he was wounded for our transgressions, he was bruised for our iniquities: the chastisement of our peace was upon him; and with his stripes we are healed."
+                    </p>
+                    <p class="mt-4 text-lg font-semibold text-gray-600">- Prophet Isaiah</p>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="mt-10 pt-6 border-t border-gray-300 text-center text-gray-600 text-sm">
+            <p>&copy; 2024 Trinitarian Believer. All rights reserved.</p>
+        </footer>
+    </div>
+    <!-- Custom JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="Script/script.js"></script>
+</body>
+</html>
+
