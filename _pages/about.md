@@ -1,9 +1,0 @@
----
-permalink: /about/
-title: "About"
----
-
-*But he was wounded for our transgressions, he was bruised for our iniquities:*
-*the chastisement of our peace was upon him; and with his stripes we are healed.*
-
-*- Prophet Isaiah*
