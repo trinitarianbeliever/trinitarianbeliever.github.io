@@ -1,0 +1,33 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/* Custom CSS for the animated underline effect on navigation links */
+.link-underline {
+    position: relative;
+}
+
+.link-underline::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 3px;
+    background-color: currentColor;
+    transition: width 0.3s ease-out, transform 0.3s ease-out;
+    transform: translateX(-50%);
+}
+
+.link-underline:hover::after {
+    width: 100%;
+    transform: translateX(-50%);
+}
+
+/* Custom style for active pagination button */
+.pagination-btn.active {
+    background-color: #6f777d;
+    color: white;
+    border-color: #6f777d;
+}

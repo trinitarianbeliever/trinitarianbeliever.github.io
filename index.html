@@ -4,114 +4,157 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trinitarian Believer</title>
-    <!-- Tailwind CSS CDN -->
+    <!-- Tailwind CSS CDN for easy styling -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <!-- Link to external stylesheet -->
-    <link rel="stylesheet" href="./Style/style.css">
+    <!-- Font Awesome CDN for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="./styles.css">
     <link rel="icon" href="./Img/favicon.ico"> 
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
-<body class="bg-gray-200 min-h-screen flex flex-col items-center p-4">
+<body class="bg-white min-h-screen">
 
-    <!-- Main Content Container -->
-    <div class="w-full max-w-5xl bg-white rounded-xl shadow-xl p-6 lg:p-10 my-8">
-        
-        <!-- Site Name above the header -->
-        <div class="text-center py-4">
-            <a href="#" id="site-name-link" class="block">
-                <h1 class="text-4xl font-extrabold tracking-tight uppercase text-gradient site-name-font">Trinitarian Believer</h1>
-            </a>
-        </div>
+    <!-- Header Section -->
+    <header class="bg-white p-4 sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center flex-wrap gap-4">
+            <!-- Logo/Site Name -->
+            <div class="flex-shrink-0">
+                <a href="#" class="text-2xl font-bold text-[#6f777d] hover:text-[#4a5054] rounded-md p-2 transition-colors duration-300">Trinitarian Believer</a>
+            </div>
 
-        <!-- Header Section -->
-        <header class="flex flex-col sm:flex-row justify-between items-center py-4">
-            <!-- Navigation on the right -->
-            <nav class="flex-1 flex justify-center">
-                <ul class="flex justify-center space-x-4">
-                    <li><a href="#" class="text-gray-600 font-semibold uppercase hover:text-blue-600 hover:underline transition" id="home-link">Home</a></li>
-                    <li><a href="#" class="text-gray-600 font-semibold uppercase hover:text-blue-600 hover:underline transition" id="categories-link">Categories</a></li>
-                    <li><a href="#" class="text-gray-600 font-semibold uppercase hover:text-blue-600 hover:underline transition" id="about-link">About</a></li>
-                </ul>
-            </nav>
-        </header>
+            <!-- Navigation Menu & Search Bar -->
+            <div class="flex-grow flex items-center justify-end space-x-6">
+                <!-- Desktop Navigation Menu -->
+                <nav class="hidden md:flex space-x-6 items-center">
+                    <a href="#" id="home-link" class="link-underline text-[#6f777d] hover:text-[#4a5054] text-[22px] font-medium transition-colors duration-300 rounded-md p-3">Home</a>
+                    <a href="#" id="categories-link" class="link-underline text-[#6f777d] hover:text-[#4a5054] text-[22px] font-medium transition-colors duration-300 rounded-md p-3">Categories</a>
+                    <a href="#" id="about-link" class="link-underline text-[#6f777d] hover:text-[#4a5054] text-[22px] font-medium transition-colors duration-300 rounded-md p-3">About</a>
+                </nav>
 
-        <!-- Search Bar -->
-        <div class="flex justify-center mt-4">
-            <div class="relative w-full max-w-sm md:max-w-md">
-                <input type="text" id="search-input" placeholder="Search articles..." class="w-full pl-4 pr-10 py-2 border border-gray-300 rounded-full shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
-                <div class="absolute inset-y-0 right-3 flex items-center text-gray-400 pointer-events-none">
-                    <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                <!-- Search Input -->
+                <div class="relative flex-grow max-w-sm">
+                    <input type="text" id="search-input" placeholder="Search articles..." class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
                     </svg>
                 </div>
             </div>
+            
+            <!-- Mobile Menu Toggle Button -->
+            <button id="menu-toggle" class="md:hidden text-gray-600 hover:text-gray-900 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-300">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+            </button>
         </div>
 
-        <!-- Main Content Area -->
-        <main class="mt-8 flex flex-col items-center">
-            <!-- Loading Indicator -->
-            <div id="loading-spinner" class="hidden">
-                <div class="w-12 h-12 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
+        <!-- Mobile Navigation Menu - Initially Hidden -->
+        <nav id="mobile-menu" class="hidden md:hidden mt-4 bg-gray-50 rounded-lg shadow-inner">
+            <a href="#" id="home-link-mobile" class="link-underline block p-4 text-gray-700 text-[22px] transition-colors duration-300 rounded-lg font-medium">Home</a>
+            <a href="#" id="categories-link-mobile" class="link-underline block p-4 text-gray-700 text-[22px] transition-colors duration-300 rounded-lg font-medium">Categories</a>
+            <a href="#" id="about-link-mobile" class="link-underline block p-4 text-gray-700 text-[22px] transition-colors duration-300 rounded-lg font-medium">About</a>
+        </nav>
+    </header>
+
+    <div class="border-b-2 border-[rgba(111,119,125,0.15)]"></div>
+
+    <main class="container mx-auto p-8 flex flex-col md:flex-row gap-8">
+        <!-- Left Side Panel (1/4 width) -->
+        <div class="w-full md:w-1/4 p-4 md:p-8 mb-6 md:mb-0">
+            <!-- Profile Photo -->
+            <div class="w-48 h-48 rounded-full overflow-hidden mb-4 border-4 border-gray-300">
+                <img src="./Img/profile.jpg" alt="Profile Photo" class="w-full h-full object-cover">
             </div>
-        
-            <!-- Container for blog posts -->
-            <div class="w-full max-w-2xl">
-                <!-- Container for displaying blog posts -->
-                <div id="posts-container" class="space-y-6">
-                    <!-- Blog posts will be dynamically loaded here -->
+            <!-- Description -->
+            <div class="mb-6 group">
+                <h2 class="text-2xl font-semibold text-[#6f777d] group-hover:text-[#4a5054] mb-2">Trinitarian Believer</h2>
+                <p class="text-lg leading-relaxed text-[#424242] group-hover:text-[#333333]">Here you can find articles that refute Anti-Trinitarian objections.</p>
+            </div>
+            
+            <!-- Follow My Work Section -->
+            <div class="mt-8">
+                <h3 class="text-xl font-semibold text-[#6f777d] mb-4">Follow My Work</h3>
+                <ul class="space-y-3">
+                    <li>
+                        <a href="https://www.youtube.com/@TrinitarianBeliever" target="_blank" class="flex items-center gap-2 text-[#6f777d] hover:text-[#4a5054] font-medium transition-colors duration-300">
+                            <i class="fab fa-youtube text-2xl"></i>
+                            YouTube
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/trinitarianbeliever" target="_blank" class="flex items-center gap-2 text-[#6f777d] hover:text-[#4a5054] font-medium transition-colors duration-300">
+                            <i class="fab fa-github text-2xl"></i>
+                            GitHub
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://trinitarianbeliever.github.io/" target="_blank" class="flex items-center gap-2 text-[#6f777d] hover:text-[#4a5054] font-medium transition-colors duration-300">
+                            <i class="fas fa-link text-2xl"></i>
+                            My Website
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Main Content Area (3/4 width) -->
+        <div class="w-full md:w-3/4">
+            <!-- Main content area, showing either categories, posts, or a single post -->
+            <div id="content-area">
+                <!-- Categories Section (initially hidden) -->
+                <div id="categories-view" class="hidden">
+                    <h1 class="text-3xl font-bold text-[#6f777d] mb-6">Article Categories</h1>
+                    <div id="categories-container" class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
+                        <!-- Category buttons will be dynamically added here by JavaScript -->
+                    </div>
+                    <!-- Category Pagination Controls -->
+                    <div id="category-pagination-controls" class="flex justify-center items-center gap-2 mt-8">
+                        <!-- Pagination buttons will be dynamically added here -->
+                    </div>
                 </div>
 
-                <!-- Pagination controls -->
-                <div id="pagination-container" class="flex justify-between items-center py-4 hidden">
-                    <button id="prev-btn" class="bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg shadow-lg hover:bg-blue-700 transition">Previous</button>
-                    <span id="page-info" class="text-gray-600 font-medium">Page 1 of 1</span>
-                    <button id="next-btn" class="bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg shadow-lg hover:bg-blue-700 transition">Next</button>
+                <!-- About Section (initially hidden) -->
+                <div id="about-view" class="hidden">
+                    <h1 class="text-3xl font-bold text-[#6f777d] mb-6">About This Blog</h1>
+                    <blockquote class="border-l-4 border-gray-400 pl-4 py-2 italic max-w-2xl">
+                        <p class="text-[#6f777d] leading-relaxed text-xl mb-2 font-bold">
+                            "But he was wounded for our transgressions, he was bruised for our iniquities: the chastisement of our peace was upon him; and with his stripes we are healed."
+                        </p>
+                    </blockquote>
                 </div>
                 
-                <!-- Container for displaying the category list -->
-                <div id="category-list-container" class="hidden flex flex-col space-y-6">
-                    <h2 class="text-3xl font-extrabold text-gray-900 mb-6">Article Categories</h2>
-                    <div id="categories-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-                        <!-- Categories will be dynamically loaded here -->
+                <!-- Blog Posts Section (initially shown) -->
+                <div id="posts-view">
+                    <div class="flex items-center justify-between mb-6">
+                        <h1 id="posts-title" class="text-3xl font-bold text-[#6f777d]">Latest Articles</h1>
+                        <button id="show-all-btn" class="hidden px-4 py-2 bg-gray-200 text-gray-700 font-semibold rounded-full hover:bg-gray-300 transition-colors duration-300">Show All Posts</button>
                     </div>
-                     <!-- Pagination controls for categories -->
-                    <div id="category-pagination-container" class="flex justify-between items-center py-4 hidden">
-                        <button id="category-prev-btn" class="bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg shadow-lg hover:bg-blue-700 transition">Previous</button>
-                        <span id="category-page-info" class="text-gray-600 font-medium">Page 1 of 1</span>
-                        <button id="category-next-btn" class="bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg shadow-lg hover:bg-blue-700 transition">Next</button>
+                    <div id="posts-container" class="grid grid-cols-1 gap-6">
+                        <!-- Posts will be dynamically added here by JavaScript -->
+                    </div>
+                    
+                    <!-- Pagination Controls -->
+                    <div id="pagination-controls" class="flex justify-center items-center gap-2 mt-8">
+                        <!-- Pagination buttons will be dynamically added here -->
                     </div>
                 </div>
-
-                <!-- Container for full post view -->
-                <div id="post-detail-container" class="hidden">
-                    <button id="back-to-home-btn" class="bg-gray-200 text-gray-800 font-semibold py-2 px-4 rounded-lg mb-6 hover:bg-gray-300 transition">
-                        &larr; Back to Home
+                
+                <!-- Single Post Section (initially hidden) -->
+                <div id="post-detail-view" class="hidden">
+                    <button id="back-to-posts-btn" class="mb-4 px-4 py-2 bg-gray-200 text-gray-700 font-semibold rounded-full hover:bg-gray-300 transition-colors duration-300">
+                        &larr; Back to Articles
                     </button>
-                    <h2 id="post-detail-title" class="text-3xl font-bold text-gray-900 mb-2"></h2>
-                    <p id="post-detail-meta" class="text-gray-600 text-sm mb-4"></p>
-                    <div id="post-detail-content" class="text-gray-700 leading-relaxed"></div>
-                </div>
-
-                <!-- About Page Container -->
-                <div id="about-container" class="hidden text-center max-w-2xl mx-auto p-6">
-                    <p class="text-xl italic text-gray-700 leading-relaxed">
-                        "But he was wounded for our transgressions, he was bruised for our iniquities: the chastisement of our peace was upon him; and with his stripes we are healed."
-                    </p>
-                    <p class="mt-4 text-lg font-semibold text-gray-600">- Prophet Isaiah</p>
+                    <div class="bg-white p-8 rounded-lg shadow-md">
+                        <h1 id="post-detail-title" class="text-5xl font-bold text-gray-800 mb-4"></h1>
+                        <p id="post-detail-date" class="text-lg text-gray-500 mb-4"></p>
+                        <p id="post-detail-content" class="text-xl text-gray-700 leading-relaxed"></p>
+                    </div>
                 </div>
             </div>
-        </main>
+        </div>
+    </main>
 
-        <!-- Footer -->
-        <footer class="mt-10 pt-6 border-t border-gray-300 text-center text-gray-600 text-sm">
-            <p>&copy; 2024 Trinitarian Believer. All rights reserved.</p>
-        </footer>
-    </div>
-    <!-- Custom JavaScript -->
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <script src="Script/script.js"></script>
+    <!-- JavaScript for Mobile Menu, Search Filter, and Pagination -->
+    <script src="./script.js"></script>
 </body>
 </html>
-
