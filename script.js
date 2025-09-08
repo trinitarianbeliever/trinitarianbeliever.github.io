@@ -27,7 +27,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Post and Category Data ---
     let allPosts = [];
-
+    let fuse; // Declare Fuse instance
+    
     const postsPerPage = 5;
     let currentPostPage = 1;
     let currentFilteredPosts = [];
@@ -45,10 +46,17 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             allPosts = await response.json();
             currentFilteredPosts = [...allPosts];
+
+            // Initialize Fuse.js after fetching the posts
+            const options = {
+                keys: ['title', 'summary'],
+                threshold: 0.4
+            };
+            fuse = new Fuse(allPosts, options);
+
             showPostsByCategory('All');
         } catch (error) {
             console.error('There was a problem fetching the posts:', error);
-            // You could display an error message to the user here
             postsContainer.innerHTML = '<p class="text-red-500 text-center">Failed to load posts. Please try again later.</p>';
         }
     };
@@ -60,7 +68,6 @@ document.addEventListener('DOMContentLoaded', () => {
         aboutView.classList.add('hidden');
         postDetailView.classList.add('hidden');
         viewElement.classList.remove('hidden');
-        searchInput.value = ''; // Clear search when switching views
     };
 
     const renderPagination = (container, currentPage, totalItems, itemsPerPage, callback) => {
@@ -185,12 +192,16 @@ document.addEventListener('DOMContentLoaded', () => {
         renderPosts(currentFilteredPosts);
     };
 
-    const filterVisiblePosts = (searchTerm) => {
-        const filtered = allPosts.filter(post => 
-            post.title.toLowerCase().includes(searchTerm) || 
-            post.summary.toLowerCase().includes(searchTerm)
-        );
-        currentFilteredPosts = filtered;
+    const handleSearch = (searchTerm) => {
+        // If the search term is empty, show all posts
+        if (searchTerm.trim() === '') {
+            currentFilteredPosts = allPosts;
+        } else {
+            // Use Fuse.js to perform the fuzzy search
+            const results = fuse.search(searchTerm);
+            // Map the results to get the original post objects
+            currentFilteredPosts = results.map(result => result.item);
+        }
         currentPostPage = 1;
         renderPosts(currentFilteredPosts);
     };
@@ -233,7 +244,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     searchInput.addEventListener('input', (e) => {
         const searchTerm = e.target.value.toLowerCase();
-        filterVisiblePosts(searchTerm);
+        handleSearch(searchTerm);
     });
 
     homeLink.addEventListener('click', () => showPostsByCategory('All'));
