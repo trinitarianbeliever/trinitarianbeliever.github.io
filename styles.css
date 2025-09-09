@@ -1,6 +1,7 @@
 body {
     margin: 0;
     padding: 0;
+    font-family: serif;
 }
 
 /* Custom CSS for the animated underline effect on navigation links */
