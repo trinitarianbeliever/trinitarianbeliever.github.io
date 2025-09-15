@@ -45,6 +45,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 throw new Error('Network response was not ok');
             }
             allPosts = await response.json();
+            
+            // Sort posts by date in descending order (latest first)
+            allPosts.sort((a, b) => new Date(b.date) - new Date(a.date));
+
             currentFilteredPosts = [...allPosts];
 
             // Initialize Fuse.js after fetching the posts
@@ -184,7 +188,7 @@ document.addEventListener('DOMContentLoaded', () => {
         currentFilteredPosts = category === 'All' ? allPosts : allPosts.filter(post => post.category === category);
         currentPostPage = 1;
         showView(postsView);
-        postsTitle.textContent = category === 'All' ? 'Latest Articles' : `Articles in "${category}"`;
+        // postsTitle.textContent = category === 'All' ? 'Latest Articles' : `Articles in "${category}"`;
         showAllBtn.classList.add('hidden');
         if (category !== 'All') {
             showAllBtn.classList.remove('hidden');
@@ -269,3 +273,4 @@ document.addEventListener('DOMContentLoaded', () => {
     showAllBtn.addEventListener('click', () => showPostsByCategory('All'));
     backToPostsBtn.addEventListener('click', () => showPostsByCategory('All'));
 });
+

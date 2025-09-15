@@ -59,52 +59,13 @@
 
     <div class="border-b-2 border-[rgba(111,119,125,0.15)]"></div>
 
-    <main class="container mx-auto p-8 flex flex-col md:flex-row gap-8">
-        <!-- Left Side Panel (1/4 width) -->
-        <div class="w-full md:w-1/4 p-4 md:p-8 mb-6 md:mb-0">
-            <!-- Profile Photo -->
-            <div class="w-48 h-48 rounded-full overflow-hidden mb-4 border-4 border-gray-300">
-                <img src="./Img/profile.jpg" alt="Profile Photo" class="w-full h-full object-cover">
-            </div>
-            <!-- Description -->
-            <div class="mb-6 group">
-                <h2 class="text-2xl font-semibold text-[#6f777d] group-hover:text-[#4a5054] mb-2">Trinitarian Believer</h2>
-                <p class="text-lg leading-relaxed text-[#424242] group-hover:text-[#333333]">Here you can find articles that refute Anti-Trinitarian objections.</p>
-            </div>
-            
-            <!-- Follow My Work Section -->
-            <div class="mt-8">
-                <h3 class="text-xl font-semibold text-[#6f777d] mb-4">Follow My Work</h3>
-                <ul class="space-y-3">
-                    <li>
-                        <a href="https://www.youtube.com/@TrinitarianBeliever" target="_blank" class="flex items-center gap-2 text-[#6f777d] hover:text-[#4a5054] font-medium transition-colors duration-300">
-                            <i class="fab fa-youtube text-2xl"></i>
-                            YouTube
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://github.com/trinitarianbeliever" target="_blank" class="flex items-center gap-2 text-[#6f777d] hover:text-[#4a5054] font-medium transition-colors duration-300">
-                            <i class="fab fa-github text-2xl"></i>
-                            GitHub
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://trinitarianbeliever.github.io/" target="_blank" class="flex items-center gap-2 text-[#6f777d] hover:text-[#4a5054] font-medium transition-colors duration-300">
-                            <i class="fas fa-link text-2xl"></i>
-                            My Website
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-
+    <main class="container mx-auto p-8">
         <!-- Main Content Area (3/4 width) -->
-        <div class="w-full md:w-3/4">
+        <div class="w-full">
             <!-- Main content area, showing either categories, posts, or a single post -->
             <div id="content-area">
                 <!-- Categories Section (initially hidden) -->
                 <div id="categories-view" class="hidden">
-                    <h1 class="text-3xl font-bold text-[#6f777d] mb-6">Article Categories</h1>
                     <div id="categories-container" class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
                         <!-- Category buttons will be dynamically added here by JavaScript -->
                     </div>
@@ -116,7 +77,6 @@
 
                 <!-- About Section (initially hidden) -->
                 <div id="about-view" class="hidden">
-                    <h1 class="text-3xl font-bold text-[#6f777d] mb-6">About This Blog</h1>
                     <blockquote class="border-l-4 border-gray-400 pl-4 py-2 italic max-w-2xl">
                         <p class="text-[#6f777d] leading-relaxed text-xl mb-2 font-bold">
                             "But he was wounded for our transgressions, he was bruised for our iniquities: the chastisement of our peace was upon him; and with his stripes we are healed."
@@ -126,8 +86,7 @@
                 
                 <!-- Blog Posts Section (initially shown) -->
                 <div id="posts-view">
-                    <div class="flex items-center justify-between mb-6">
-                        <h1 id="posts-title" class="text-3xl font-bold text-[#6f777d]">Latest Articles</h1>
+                    <div class="flex items-center justify-end mb-6">
                         <button id="show-all-btn" class="hidden px-4 py-2 bg-gray-200 text-gray-700 font-semibold rounded-full hover:bg-gray-300 transition-colors duration-300">Show All Posts</button>
                     </div>
                     <div id="posts-container" class="grid grid-cols-1 gap-6">
@@ -169,4 +128,3 @@
     <script src="./script.js"></script>
 </body>
 </html>
-
