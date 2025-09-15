@@ -1,35 +1,275 @@
 body {
+    font-family: Georgia, serif;
     margin: 0;
     padding: 0;
-    font-family: Georgia, serif;
+    background-color: #f4f4f4;
+    color: #333;
 }
 
-/* Custom CSS for the animated underline effect on navigation links */
-.link-underline {
-    position: relative;
-}
-
-.link-underline::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    width: 0;
-    height: 3px;
-    background-color: currentColor;
-    transition: width 0.3s ease-out, transform 0.3s ease-out;
-    transform: translateX(-50%);
-}
-
-.link-underline:hover::after {
-    width: 100%;
-    transform: translateX(-50%);
-}
-
-/* Custom style for active pagination button */
-.pagination-btn.active {
-    background-color: #6f777d;
+header {
+    background-color: #7a1f1f;
     color: white;
-    border-color: #6f777d;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.hamburger {
+    display: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+}
+
+.header-nav {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 1.5rem;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 400;
+    padding: 0.5rem 1rem;
+    transition: text-decoration 0.3s ease;
+    cursor: pointer;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+#search-input,
+#search-button {
+    padding: 0.5rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: inherit;
+    height: 2.5rem;
+    box-sizing: border-box;
+}
+
+#search-input {
+    border-color: #ccc;
+}
+
+#search-button {
+    background-color: #7a1f1f;
+    color: white;
+    border: 1px solid white;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+#search-button:hover {
+    background-color: #5d1616;
+    border-color: #5d1616;
+}
+
+main {
+    padding: 0;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.post-list {
+    padding: 2rem;
+}
+
+.post-list h2, .category-list h2, .full-post h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+.post-title {
+    font-style: italic;
+    text-decoration: underline;
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    text-align: center;
+}
+
+.post-title:hover {
+    color: #7a1f1f;
+}
+
+.full-post {
+    padding: 2rem;
+}
+
+.full-post h1 {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+.full-post p {
+    line-height: 1.6;
+}
+
+.category-list {
+    padding: 2rem;
+    text-align: center;
+}
+
+.category-list ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.category-list li a {
+    background-color: #f0f0f0;
+    color: #333;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    text-decoration: none;
+    font-weight: 700;
+    transition: background-color 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
+    display: block;
+}
+
+.category-list li a:hover {
+    background-color: #e0e0e0;
+    border-color: #999;
+    transform: translateY(-2px);
+}
+
+.back-button {
+    display: block;
+    margin-top: 2rem;
+    text-align: center;
+    font-weight: bold;
+    text-decoration: none;
+    color: #7a1f1f;
+    transition: color 0.3s ease;
+}
+
+.back-button:hover {
+    color: #5d1616;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.pagination button {
+    background-color: #7a1f1f;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.pagination button:hover:not(:disabled) {
+    background-color: #5d1616;
+}
+
+.pagination button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+@media (max-width: 992px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem;
+    }
+    
+    .header-top {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+    }
+
+    .logo {
+        margin: 0;
+    }
+
+    .hamburger {
+        display: block;
+    }
+    
+    .header-nav {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        gap: 1rem;
+        align-items: flex-start;
+    }
+    
+    .header-nav.is-open {
+        display: flex;
+    }
+
+    nav {
+        width: 100%;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 0.5rem;
+        width: 100%;
+        align-items: flex-start;
+    }
+
+    nav a {
+        display: block;
+        text-align: left;
+    }
+
+    .search-container {
+        width: 100%;
+        justify-content: flex-start;
+        flex-direction: row;
+        gap: 0.5rem;
+    }
+    
+    #search-input {
+        width: auto;
+    }
+}
