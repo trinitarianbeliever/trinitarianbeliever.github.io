@@ -1,5 +1,15 @@
-The Doctrine of the Trinity
+In the book of Genesis, God told Abraham to offer his son Isaac for a burnt offering. However, when I read the verse, it raised me a question. It says the following
 
-The doctrine of the Trinity is a core belief in most Christian denominations. It asserts that there is one God who exists in three co-eternal, co-equal persons: the Father, the Son (Jesus Christ), and the Holy Spirit. While this concept may seem complex, it is foundational to understanding the nature of God as revealed in scripture.
+<b>“And he said, Take now thy son, thine <i>only son Isaac</i>, whom thou lovest, and get thee into the land of Moriah; and offer him there for a burnt offering upon one of the mountains which I will tell thee of. - Genesis 22:2”</b>
 
-The New Testament provides many insights into this divine relationship. The Father is often seen as the source of all things, the Son as the Word made flesh and the revealer of the Father, and the Holy Spirit as the divine power that indwells believers and empowers them to live a holy life. The three persons are distinct, yet inseparable, working in perfect harmony.
+Now how can Isaac be Abraham’s only son when we clearly know he had another son before Isaac from Hagar.
+
+<b>“And Hagar bare Abram a son: and Abram called his son's name, which Hagar bare, Ishmael. - Genesis 16:15”.</b>
+
+To understand this, we need to learn how the language is used in the Bible. When we read the New Testament in <b>John 3:16</b>, God says He sent His only begotten Son into the world to save mankind from their sin. However, when we read the Bible, Jesus is not the only Son of God, even though Jesus is unique and called the only begotten Son. We see the whole nation of Israel being called as God’s son in <b>Deuteronomy 14:1</b>, and also David and his descendants who sit on the throne are called the Sons of God in a unique way <b>(Psalm 2:7, 2 Samuel 7:13-14, 1 Chronicles 17:13)</b>.
+
+As <b>John 3:16</b> says, Jesus is God’s only begotten Son. Also, <b>Hebrews 11:17</b> says Isaac is Abraham’s only begotten son. The Greek word used in both cases is μονογενῆ (monogenē), and it describes Isaac and Jesus as unique and special sons, even though God and Abraham had other sons in the Bible, as we clearly see. On one hand, Isaac is the child God promised to Abraham in his old age, through whom he promised to have many descendants, as many as the stars in the sky. Abraham also had to wait for some time to receive this child. In the same way, Jesus is also the promised Son to mankind, who will one day deliver the world from sin and be a blessing to the nations.
+
+<b>Conclusion</b>
+
+Saying "only son" in <b>Genesis 22:2</b> means Isaac is the promised son, and he is a unique and special son to Abraham. Through him, God promised to bless all the nations.
