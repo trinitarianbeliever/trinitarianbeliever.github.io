@@ -102,6 +102,7 @@ main {
 
 .post-list {
     padding: 2rem;
+    text-align: center;
 }
 
 .post-list h2, .category-list h2, .full-post h2 {
@@ -110,7 +111,9 @@ main {
     margin-bottom: 2rem;
 }
 
-.post-title {
+/* Category post list styles - maintains existing design */
+.post-list.category-posts .post-title,
+.post-list.search-results .post-title {
     font-style: italic;
     text-decoration: underline;
     font-size: 1.25rem;
@@ -119,8 +122,49 @@ main {
     text-align: center;
 }
 
-.post-title:hover {
+.post-list.category-posts .post-title:hover,
+.post-list.search-results .post-title:hover {
     color: #7a1f1f;
+}
+
+/* New grid-based layout for the home page */
+.post-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    padding: 2rem;
+}
+
+.post-card {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.post-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.post-card-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 0 0 0.5rem 0;
+    color: #7a1f1f;
+}
+
+.post-card-category {
+    font-size: 0.9rem;
+    color: #666;
+    font-style: italic;
 }
 
 .full-post {
@@ -271,5 +315,20 @@ main {
     
     #search-input {
         width: auto;
+    }
+
+    /* Responsive grid for homepage */
+    .post-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns for tablets */
+    }
+}
+
+@media (max-width: 600px) {
+    .post-grid {
+        grid-template-columns: 1fr; /* 1 column for mobile */
+        padding: 1rem;
+    }
+    .post-card {
+        padding: 1rem;
     }
 }

@@ -1,4 +1,4 @@
-const POSTS_PER_PAGE = 21;
+const POSTS_PER_PAGE = 9;
 const CATEGORIES_PER_PAGE = 40;
 let currentPagePosts = 1;
 let currentPageCategories = 1;
@@ -64,7 +64,7 @@ async function fetchAndRenderFullPost(post) {
     }
 }
 
-// Function to render the home page with paginated post titles
+// Function to render the home page with paginated post cards
 function renderHomePage(page) {
     const startIndex = (page - 1) * POSTS_PER_PAGE;
     const endIndex = startIndex + POSTS_PER_PAGE;
@@ -72,17 +72,18 @@ function renderHomePage(page) {
     const totalPages = Math.ceil(allPosts.length / POSTS_PER_PAGE);
 
     contentContainer.innerHTML = `
-        <div class="post-list">
+        <div class="post-grid">
             ${postsToShow.map(post => `
-                <p class="post-title" data-post-id="${post.id}">
-                    ${post.title}
-                </p>
+                <div class="post-card" data-post-id="${post.id}">
+                    <h3 class="post-card-title">${post.title}</h3>
+                    <p class="post-card-category">${post.category}</p>
+                </div>
             `).join('')}
-            <div class="pagination">
-                <button id="prev-posts" ${page === 1 ? 'disabled' : ''}>Previous</button>
-                <span>Page ${page} of ${totalPages}</span>
-                <button id="next-posts" ${page === totalPages ? 'disabled' : ''}>Next</button>
-            </div>
+        </div>
+        <div class="pagination">
+            <button id="prev-posts" ${page === 1 ? 'disabled' : ''}>Previous</button>
+            <span>Page ${page} of ${totalPages}</span>
+            <button id="next-posts" ${page === totalPages ? 'disabled' : ''}>Next</button>
         </div>
     `;
 
@@ -142,7 +143,7 @@ function renderCategoriesPage(page) {
 function renderPostsByCategory(category) {
     const filteredPosts = allPosts.filter(post => post.category === category);
     contentContainer.innerHTML = `
-        <div class="post-list">
+        <div class="post-list category-posts">
             <h2>Articles in ${category}</h2>
             ${filteredPosts.map(post => `
                 <p class="post-title" data-post-id="${post.id}">
@@ -162,7 +163,7 @@ function renderSearchResults(query) {
     );
 
     let html = `
-        <div class="post-list">
+        <div class="post-list search-results">
             <h2>Search Results for "${query}"</h2>
     `;
 
@@ -215,7 +216,14 @@ categoriesLink.addEventListener('click', (e) => {
 
 // Event listener for dynamic content clicks (post titles and categories)
 contentContainer.addEventListener('click', (e) => {
-    if (e.target.matches('.post-title')) {
+    const postCard = e.target.closest('.post-card');
+    if (postCard) {
+        const postId = parseInt(postCard.dataset.postId);
+        const post = allPosts.find(p => p.id === postId);
+        if (post) {
+            renderRoute('full-post', post);
+        }
+    } else if (e.target.matches('.post-title')) {
         const postId = parseInt(e.target.dataset.postId);
         const post = allPosts.find(p => p.id === postId);
         if (post) {

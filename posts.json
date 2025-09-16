@@ -8,55 +8,55 @@
 {
 "id": 2,
 "title": "Understanding Grace and Faith",
-"category": "Christian Living",
+"category": "Theology",
 "filePath": "./articles/post1.md"
 },
 {
 "id": 3,
 "title": "Prayer: A Conversation with God",
-"category": "Inspiration",
+"category": "Theology",
 "filePath": "./articles/post1.md"
 },
 {
 "id": 4,
 "title": "The Resurrection of Christ",
-"category": "Biblical Studies",
+"category": "Theology",
 "filePath": "./articles/post1.md"
 },
 {
 "id": 5,
 "title": "Living with Purpose",
-"category": "Community",
+"category": "Theology",
 "filePath": "./articles/post1.md"
 },
 {
 "id": 6,
 "title": "The Fruits of the Spirit",
-"category": "History",
+"category": "Theology",
 "filePath": "./articles/post1.md"
 },
 {
 "id": 7,
 "title": "Understanding the Old Testament",
-"category": "Prayer",
+"category": "Theology",
 "filePath": "./articles/post1.md"
 },
 {
 "id": 8,
 "title": "The Importance of Community",
-"category": "Discipleship",
+"category": "Theology",
 "filePath": "./articles/post1.md"
 },
 {
 "id": 9,
 "title": "Spiritual Warfare",
-"category": "Worship",
+"category": "Theology",
 "filePath": "./articles/post1.md"
 },
 {
 "id": 10,
 "title": "God's Love for Humanity",
-"category": "Evangelism",
+"category": "Theology",
 "filePath": "./articles/post1.md"
 },
 {
@@ -74,7 +74,7 @@
 {
 "id": 13,
 "title": "The Power of Forgiveness",
-"category": "Missions",
+"category": "Theology",
 "filePath": "./articles/post1.md"
 },
 {
@@ -518,19 +518,19 @@
 {
 "id": 87,
 "title": "The Book of Romans",
-"category": "Prayer",
+"category": "Theology",
 "filePath": "./articles/post1.md"
 },
 {
 "id": 88,
 "title": "The Book of Corinthians",
-"category": "Discipleship",
+"category": "Theology",
 "filePath": "./articles/post1.md"
 },
 {
 "id": 89,
 "title": "The Book of Galatians",
-"category": "Worship",
+"category": "Theology",
 "filePath": "./articles/post1.md"
 },
 {
@@ -554,49 +554,49 @@
 {
 "id": 93,
 "title": "The Book of Thessalonians",
-"category": "Missions",
+"category": "Theology",
 "filePath": "./articles/post1.md"
 },
 {
 "id": 94,
 "title": "The Book of Timothy",
-"category": "Leadership",
+"category": "Theology",
 "filePath": "./articles/post1.md"
 },
 {
 "id": 95,
 "title": "The Book of Titus",
-"category": "Marriage",
+"category": "Theology",
 "filePath": "./articles/post1.md"
 },
 {
 "id": 96,
 "title": "The Book of Philemon",
-"category": "Parenting",
+"category": "Theology",
 "filePath": "./articles/post1.md"
 },
 {
 "id": 97,
 "title": "The Book of Hebrews",
-"category": "Youth Ministry",
+"category": "Theology",
 "filePath": "./articles/post1.md"
 },
 {
 "id": 98,
 "title": "The Book of James",
-"category": "Ethics",
+"category": "Theology",
 "filePath": "./articles/post1.md"
 },
 {
 "id": 99,
 "title": "The Book of Peter",
-"category": "Social Justice",
+"category": "Theology",
 "filePath": "./articles/post1.md"
 },
 {
 "id": 100,
 "title": "The Book of John's Epistles",
-"category": "Prophecy",
+"category": "The Book of John's Epistles",
 "filePath": "./articles/post1.md"
 }
 ]
