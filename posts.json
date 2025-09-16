@@ -3,600 +3,700 @@
 "id": 1,
 "title": "The Doctrine of the Trinity",
 "category": "Theology",
-"filePath": "./articles/post1.md"
+"filePath": "./articles/post1.md",
+"date": "2025-09-15"
 },
 {
 "id": 2,
 "title": "Understanding Grace and Faith",
 "category": "Theology",
-"filePath": "./articles/post1.md"
+"filePath": "./articles/post1.md",
+"date": "2025-09-14"
 },
 {
 "id": 3,
 "title": "Prayer: A Conversation with God",
 "category": "Theology",
-"filePath": "./articles/post1.md"
+"filePath": "./articles/post1.md",
+"date": "2025-09-13"
 },
 {
 "id": 4,
 "title": "The Resurrection of Christ",
 "category": "Theology",
-"filePath": "./articles/post1.md"
+"filePath": "./articles/post1.md",
+"date": "2025-09-12"
 },
 {
 "id": 5,
 "title": "Living with Purpose",
 "category": "Theology",
-"filePath": "./articles/post1.md"
+"filePath": "./articles/post1.md",
+"date": "2025-09-11"
 },
 {
 "id": 6,
 "title": "The Fruits of the Spirit",
 "category": "Theology",
-"filePath": "./articles/post1.md"
+"filePath": "./articles/post1.md",
+"date": "2025-09-10"
 },
 {
 "id": 7,
 "title": "Understanding the Old Testament",
 "category": "Theology",
-"filePath": "./articles/post1.md"
+"filePath": "./articles/post1.md",
+"date": "2025-09-09"
 },
 {
 "id": 8,
 "title": "The Importance of Community",
 "category": "Theology",
-"filePath": "./articles/post1.md"
+"filePath": "./articles/post1.md",
+"date": "2025-09-08"
 },
 {
 "id": 9,
 "title": "Spiritual Warfare",
 "category": "Theology",
-"filePath": "./articles/post1.md"
+"filePath": "./articles/post1.md",
+"date": "2025-09-07"
 },
 {
 "id": 10,
 "title": "God's Love for Humanity",
 "category": "Theology",
-"filePath": "./articles/post1.md"
+"filePath": "./articles/post1.md",
+"date": "2025-09-06"
 },
 {
 "id": 11,
 "title": "Hope in Hard Times",
 "category": "Apologetics",
-"filePath": "./articles/post1.md"
+"filePath": "./articles/post1.md",
+"date": "2025-09-05"
 },
 {
 "id": 12,
 "title": "What is the Bible?",
 "category": "Spiritual Growth",
-"filePath": "./articles/post1.md"
+"filePath": "./articles/post1.md",
+"date": "2025-09-04"
 },
 {
 "id": 13,
 "title": "The Power of Forgiveness",
 "category": "Theology",
-"filePath": "./articles/post1.md"
+"filePath": "./articles/post1.md",
+"date": "2025-09-03"
 },
 {
 "id": 14,
 "title": "The Holy Spirit's Role",
 "category": "Leadership",
-"filePath": "./articles/post1.md"
+"filePath": "./articles/post1.md",
+"date": "2025-09-02"
 },
 {
 "id": 15,
 "title": "Jesus: The Son of God",
 "category": "Marriage",
-"filePath": "./articles/post1.md"
+"filePath": "./articles/post1.md",
+"date": "2025-09-01"
 },
 {
 "id": 16,
 "title": "The Ten Commandments Today",
 "category": "Parenting",
-"filePath": "./articles/post1.md"
+"filePath": "./articles/post1.md",
+"date": "2025-08-31"
 },
 {
 "id": 17,
 "title": "Coping with Doubt",
 "category": "Youth Ministry",
-"filePath": "./articles/post1.md"
+"filePath": "./articles/post1.md",
+"date": "2025-08-30"
 },
 {
 "id": 18,
 "title": "The Story of Creation",
 "category": "Ethics",
-"filePath": "./articles/post1.md"
+"filePath": "./articles/post1.md",
+"date": "2025-08-29"
 },
 {
 "id": 19,
 "title": "The Church's Mission",
 "category": "Social Justice",
-"filePath": "./articles/post1.md"
+"filePath": "./articles/post1.md",
+"date": "2025-08-28"
 },
 {
 "id": 20,
 "title": "Finding Peace in Christ",
 "category": "Prophecy",
-"filePath": "./articles/post1.md"
+"filePath": "./articles/post1.md",
+"date": "2025-08-27"
 },
 {
 "id": 21,
 "title": "The Book of Revelation",
 "category": "Eschatology",
-"filePath": "./articles/post1.md"
+"filePath": "./articles/post1.md",
+"date": "2025-08-26"
 },
 {
 "id": 22,
 "title": "The Meaning of Baptism",
 "category": "Christology",
-"filePath": "./articles/post1.md"
+"filePath": "./articles/post1.md",
+"date": "2025-08-25"
 },
 {
 "id": 23,
 "title": "Overcoming Temptation",
 "category": "Pneumatology",
-"filePath": "./articles/post1.md"
+"filePath": "./articles/post1.md",
+"date": "2025-08-24"
 },
 {
 "id": 24,
 "title": "Serving Others",
 "category": "Soteriology",
-"filePath": "./articles/post1.md"
+"filePath": "./articles/post1.md",
+"date": "2025-08-23"
 },
 {
 "id": 25,
 "title": "The Parable of the Sower",
 "category": "Ecclesiology",
-"filePath": "./articles/post1.md"
+"filePath": "./articles/post1.md",
+"date": "2025-08-22"
 },
 {
 "id": 26,
 "title": "Trusting in God's Plan",
 "category": "Old Testament",
-"filePath": "./articles/post1.md"
+"filePath": "./articles/post1.md",
+"date": "2025-08-21"
 },
 {
 "id": 27,
 "title": "The Early Church",
 "category": "New Testament",
-"filePath": "./articles/post1.md"
+"filePath": "./articles/post1.md",
+"date": "2025-08-20"
 },
 {
 "id": 28,
 "title": "What is Sin?",
 "category": "Gospels",
-"filePath": "./articles/post1.md"
+"filePath": "./articles/post1.md",
+"date": "2025-08-19"
 },
 {
 "id": 29,
 "title": "The Prophecies of Isaiah",
 "category": "Epistles",
-"filePath": "./articles/post1.md"
+"filePath": "./articles/post1.md",
+"date": "2025-08-18"
 },
 {
 "id": 30,
 "title": "Finding Joy",
 "category": "Proverbs",
-"filePath": "./articles/post1.md"
+"filePath": "./articles/post1.md",
+"date": "2025-08-17"
 },
 {
 "id": 31,
 "title": "The Crusades",
 "category": "Psalms",
-"filePath": "./articles/post1.md"
+"filePath": "./articles/post1.md",
+"date": "2025-08-16"
 },
 {
 "id": 32,
 "title": "The Reformation",
 "category": "The Kingdom of God",
-"filePath": "./articles/post1.md"
+"filePath": "./articles/post1.md",
+"date": "2025-08-15"
 },
 {
 "id": 33,
 "title": "The Life of Martin Luther",
 "category": "The Great Commandment",
-"filePath": "./articles/post1.md"
+"filePath": "./articles/post1.md",
+"date": "2025-08-14"
 },
 {
 "id": 34,
 "title": "The Importance of Scripture",
 "category": "The Great Commission",
-"filePath": "./articles/post1.md"
+"filePath": "./articles/post1.md",
+"date": "2025-08-13"
 },
 {
 "id": 35,
 "title": "The Sermon on the Mount",
 "category": "The Sermon on the Mount",
-"filePath": "./articles/post1.md"
+"filePath": "./articles/post1.md",
+"date": "2025-08-12"
 },
 {
 "id": 36,
 "title": "The Great Commission",
 "category": "The End Times",
-"filePath": "./articles/post1.md"
+"filePath": "./articles/post1.md",
+"date": "2025-08-11"
 },
 {
 "id": 37,
 "title": "Worshiping in Spirit and Truth",
 "category": "The Armor of God",
-"filePath": "./articles/post1.md"
+"filePath": "./articles/post1.md",
+"date": "2025-08-10"
 },
 {
 "id": 38,
 "title": "The Story of Abraham",
 "category": "The Life of Christ",
-"filePath": "./articles/post1.md"
+"filePath": "./articles/post1.md",
+"date": "2025-08-09"
 },
 {
 "id": 39,
 "title": "Faith and Science",
 "category": "The Holy Spirit",
-"filePath": "./articles/post1.md"
+"filePath": "./articles/post1.md",
+"date": "2025-08-08"
 },
 {
 "id": 40,
 "title": "The Book of Acts",
 "category": "The Trinity",
-"filePath": "./articles/post1.md"
+"filePath": "./articles/post1.md",
+"date": "2025-08-07"
 },
 {
 "id": 41,
 "title": "The Early Church's Spread",
 "category": "Theology",
-"filePath": "./articles/post1.md"
+"filePath": "./articles/post1.md",
+"date": "2025-08-06"
 },
 {
 "id": 42,
 "title": "Living a Contagious Faith",
 "category": "Christian Living",
-"filePath": "./articles/post1.md"
+"filePath": "./articles/post1.md",
+"date": "2025-08-05"
 },
 {
 "id": 43,
 "title": "The End Times",
 "category": "Inspiration",
-"filePath": "./articles/post1.md"
+"filePath": "./articles/post1.md",
+"date": "2025-08-04"
 },
 {
 "id": 44,
 "title": "The Life of Apostle Paul",
 "category": "Biblical Studies",
-"filePath": "./articles/post1.md"
+"filePath": "./articles/post1.md",
+"date": "2025-08-03"
 },
 {
 "id": 45,
 "title": "Christianity and Politics",
 "category": "Community",
-"filePath": "./articles/post1.md"
+"filePath": "./articles/post1.md",
+"date": "2025-08-02"
 },
 {
 "id": 46,
 "title": "Understanding the Book of Job",
 "category": "History",
-"filePath": "./articles/post1.md"
+"filePath": "./articles/post1.md",
+"date": "2025-08-01"
 },
 {
 "id": 47,
 "title": "How to Read the Bible",
 "category": "Prayer",
-"filePath": "./articles/post1.md"
+"filePath": "./articles/post1.md",
+"date": "2025-07-31"
 },
 {
 "id": 48,
 "title": "The Importance of Love",
 "category": "Discipleship",
-"filePath": "./articles/post1.md"
+"filePath": "./articles/post1.md",
+"date": "2025-07-30"
 },
 {
 "id": 49,
 "title": "The Life of Jesus",
 "category": "Worship",
-"filePath": "./articles/post1.md"
+"filePath": "./articles/post1.md",
+"date": "2025-07-29"
 },
 {
 "id": 50,
 "title": "The Role of the Holy Spirit",
 "category": "Evangelism",
-"filePath": "./articles/post1.md"
+"filePath": "./articles/post1.md",
+"date": "2025-07-28"
 },
 {
 "id": 51,
 "title": "The Parable of the Lost Son",
 "category": "Apologetics",
-"filePath": "./articles/post1.md"
+"filePath": "./articles/post1.md",
+"date": "2025-07-27"
 },
 {
 "id": 52,
 "title": "Finding Your Calling",
 "category": "Spiritual Growth",
-"filePath": "./articles/post1.md"
+"filePath": "./articles/post1.md",
+"date": "2025-07-26"
 },
 {
 "id": 53,
 "title": "The Problem of Evil",
 "category": "Missions",
-"filePath": "./articles/post1.md"
+"filePath": "./articles/post1.md",
+"date": "2025-07-25"
 },
 {
 "id": 54,
 "title": "The Life of Moses",
 "category": "Leadership",
-"filePath": "./articles/post1.md"
+"filePath": "./articles/post1.md",
+"date": "2025-07-24"
 },
 {
 "id": 55,
 "title": "Christianity in a Secular World",
 "category": "Marriage",
-"filePath": "./articles/post1.md"
+"filePath": "./articles/post1.md",
+"date": "2025-07-23"
 },
 {
 "id": 56,
 "title": "The Book of Psalms",
 "category": "Parenting",
-"filePath": "./articles/post1.md"
+"filePath": "./articles/post1.md",
+"date": "2025-07-22"
 },
 {
 "id": 57,
 "title": "The Meaning of the Lord's Prayer",
 "category": "Youth Ministry",
-"filePath": "./articles/post1.md"
+"filePath": "./articles/post1.md",
+"date": "2025-07-21"
 },
 {
 "id": 58,
 "title": "The Book of Proverbs",
 "category": "Ethics",
-"filePath": "./articles/post1.md"
+"filePath": "./articles/post1.md",
+"date": "2025-07-20"
 },
 {
 "id": 59,
 "title": "The Role of the Church",
 "category": "Social Justice",
-"filePath": "./articles/post1.md"
+"filePath": "./articles/post1.md",
+"date": "2025-07-19"
 },
 {
 "id": 60,
 "title": "Living a Godly Life",
 "category": "Prophecy",
-"filePath": "./articles/post1.md"
+"filePath": "./articles/post1.md",
+"date": "2025-07-18"
 },
 {
 "id": 61,
 "title": "The Life of King David",
 "category": "Eschatology",
-"filePath": "./articles/post1.md"
+"filePath": "./articles/post1.md",
+"date": "2025-07-17"
 },
 {
 "id": 62,
 "title": "The Story of Esther",
 "category": "Christology",
-"filePath": "./articles/post1.md"
+"filePath": "./articles/post1.md",
+"date": "2025-07-16"
 },
 {
 "id": 63,
 "title": "The Gifts of the Spirit",
 "category": "Pneumatology",
-"filePath": "./articles/post1.md"
+"filePath": "./articles/post1.md",
+"date": "2025-07-15"
 },
 {
 "id": 64,
 "title": "The Book of Genesis",
 "category": "Soteriology",
-"filePath": "./articles/post1.md"
+"filePath": "./articles/post1.md",
+"date": "2025-07-14"
 },
 {
 "id": 65,
 "title": "The Life of Apostle Peter",
 "category": "Ecclesiology",
-"filePath": "./articles/post1.md"
+"filePath": "./articles/post1.md",
+"date": "2025-07-13"
 },
 {
 "id": 66,
 "title": "The Book of Exodus",
 "category": "Old Testament",
-"filePath": "./articles/post1.md"
+"filePath": "./articles/post1.md",
+"date": "2025-07-12"
 },
 {
 "id": 67,
 "title": "The Book of Isaiah",
 "category": "New Testament",
-"filePath": "./articles/post1.md"
+"filePath": "./articles/post1.md",
+"date": "2025-07-11"
 },
 {
 "id": 68,
 "title": "The Book of Jeremiah",
 "category": "Gospels",
-"filePath": "./articles/post1.md"
+"filePath": "./articles/post1.md",
+"date": "2025-07-10"
 },
 {
 "id": 69,
 "title": "The Book of Ezekiel",
 "category": "Epistles",
-"filePath": "./articles/post1.md"
+"filePath": "./articles/post1.md",
+"date": "2025-07-09"
 },
 {
 "id": 70,
 "title": "The Book of Daniel",
 "category": "Proverbs",
-"filePath": "./articles/post1.md"
+"filePath": "./articles/post1.md",
+"date": "2025-07-08"
 },
 {
 "id": 71,
 "title": "The Book of Hosea",
 "category": "Psalms",
-"filePath": "./articles/post1.md"
+"filePath": "./articles/post1.md",
+"date": "2025-07-07"
 },
 {
 "id": 72,
 "title": "The Book of Joel",
 "category": "The Kingdom of God",
-"filePath": "./articles/post1.md"
+"filePath": "./articles/post1.md",
+"date": "2025-07-06"
 },
 {
 "id": 73,
 "title": "The Book of Amos",
 "category": "The Great Commandment",
-"filePath": "./articles/post1.md"
+"filePath": "./articles/post1.md",
+"date": "2025-07-05"
 },
 {
 "id": 74,
 "title": "The Book of Obadiah",
 "category": "The Great Commission",
-"filePath": "./articles/post1.md"
+"filePath": "./articles/post1.md",
+"date": "2025-07-04"
 },
 {
 "id": 75,
 "title": "The Book of Jonah",
 "category": "The Sermon on the Mount",
-"filePath": "./articles/post1.md"
+"filePath": "./articles/post1.md",
+"date": "2025-07-03"
 },
 {
 "id": 76,
 "title": "The Book of Micah",
 "category": "The End Times",
-"filePath": "./articles/post1.md"
+"filePath": "./articles/post1.md",
+"date": "2025-07-02"
 },
 {
 "id": 77,
 "title": "The Book of Nahum",
 "category": "The Armor of God",
-"filePath": "./articles/post1.md"
+"filePath": "./articles/post1.md",
+"date": "2025-07-01"
 },
 {
 "id": 78,
 "title": "The Book of Habakkuk",
 "category": "The Life of Christ",
-"filePath": "./articles/post1.md"
+"filePath": "./articles/post1.md",
+"date": "2025-06-30"
 },
 {
 "id": 79,
 "title": "The Book of Zephaniah",
 "category": "The Holy Spirit",
-"filePath": "./articles/post1.md"
+"filePath": "./articles/post1.md",
+"date": "2025-06-29"
 },
 {
 "id": 80,
 "title": "The Book of Haggai",
 "category": "The Trinity",
-"filePath": "./articles/post1.md"
+"filePath": "./articles/post1.md",
+"date": "2025-06-28"
 },
 {
 "id": 81,
 "title": "The Book of Zechariah",
 "category": "Theology",
-"filePath": "./articles/post1.md"
+"filePath": "./articles/post1.md",
+"date": "2025-06-27"
 },
 {
 "id": 82,
 "title": "The Book of Malachi",
 "category": "Christian Living",
-"filePath": "./articles/post1.md"
+"filePath": "./articles/post1.md",
+"date": "2025-06-26"
 },
 {
 "id": 83,
 "title": "The Gospel of Matthew",
 "category": "Inspiration",
-"filePath": "./articles/post1.md"
+"filePath": "./articles/post1.md",
+"date": "2025-06-25"
 },
 {
 "id": 84,
 "title": "The Gospel of Mark",
 "category": "Biblical Studies",
-"filePath": "./articles/post1.md"
+"filePath": "./articles/post1.md",
+"date": "2025-06-24"
 },
 {
 "id": 85,
 "title": "The Gospel of Luke",
 "category": "Community",
-"filePath": "./articles/post1.md"
+"filePath": "./articles/post1.md",
+"date": "2025-06-23"
 },
 {
 "id": 86,
 "title": "The Gospel of John",
 "category": "History",
-"filePath": "./articles/post1.md"
+"filePath": "./articles/post1.md",
+"date": "2025-06-22"
 },
 {
 "id": 87,
 "title": "The Book of Romans",
 "category": "Theology",
-"filePath": "./articles/post1.md"
+"filePath": "./articles/post1.md",
+"date": "2025-06-21"
 },
 {
 "id": 88,
 "title": "The Book of Corinthians",
 "category": "Theology",
-"filePath": "./articles/post1.md"
+"filePath": "./articles/post1.md",
+"date": "2025-06-20"
 },
 {
 "id": 89,
 "title": "The Book of Galatians",
 "category": "Theology",
-"filePath": "./articles/post1.md"
+"filePath": "./articles/post1.md",
+"date": "2025-06-19"
 },
 {
 "id": 90,
 "title": "The Book of Ephesians",
 "category": "Evangelism",
-"filePath": "./articles/post1.md"
+"filePath": "./articles/post1.md",
+"date": "2025-06-18"
 },
 {
 "id": 91,
 "title": "The Book of Philippians",
 "category": "Apologetics",
-"filePath": "./articles/post1.md"
+"filePath": "./articles/post1.md",
+"date": "2025-06-17"
 },
 {
 "id": 92,
 "title": "The Book of Colossians",
 "category": "Spiritual Growth",
-"filePath": "./articles/post1.md"
+"filePath": "./articles/post1.md",
+"date": "2025-06-16"
 },
 {
 "id": 93,
 "title": "The Book of Thessalonians",
 "category": "Theology",
-"filePath": "./articles/post1.md"
+"filePath": "./articles/post1.md",
+"date": "2025-06-15"
 },
 {
 "id": 94,
 "title": "The Book of Timothy",
 "category": "Theology",
-"filePath": "./articles/post1.md"
+"filePath": "./articles/post1.md",
+"date": "2025-06-14"
 },
 {
 "id": 95,
 "title": "The Book of Titus",
 "category": "Theology",
-"filePath": "./articles/post1.md"
+"filePath": "./articles/post1.md",
+"date": "2025-06-13"
 },
 {
 "id": 96,
 "title": "The Book of Philemon",
 "category": "Theology",
-"filePath": "./articles/post1.md"
+"filePath": "./articles/post1.md",
+"date": "2025-06-12"
 },
 {
 "id": 97,
 "title": "The Book of Hebrews",
 "category": "Theology",
-"filePath": "./articles/post1.md"
+"filePath": "./articles/post1.md",
+"date": "2025-06-11"
 },
 {
 "id": 98,
 "title": "The Book of James",
 "category": "Theology",
-"filePath": "./articles/post1.md"
+"filePath": "./articles/post1.md",
+"date": "2025-06-10"
 },
 {
 "id": 99,
 "title": "The Book of Peter",
 "category": "Theology",
-"filePath": "./articles/post1.md"
+"filePath": "./articles/post1.md",
+"date": "2025-06-09"
 },
 {
 "id": 100,
 "title": "The Book of John's Epistles",
 "category": "The Book of John's Epistles",
-"filePath": "./articles/post1.md"
+"filePath": "./articles/post1.md",
+"date": "2025-06-08"
 }
 ]

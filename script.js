@@ -22,8 +22,8 @@ async function fetchPostsData() {
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
         allPosts = await response.json();
-        // Sort posts by ID in descending order to show the latest first
-        allPosts.sort((a, b) => b.id - a.id);
+        // Sort posts by date in descending order to show the latest first
+        allPosts.sort((a, b) => new Date(b.date) - new Date(a.date));
         allCategories = [...new Set(allPosts.map(post => post.category))];
         renderRoute('home');
     } catch (error) {
@@ -77,6 +77,7 @@ function renderHomePage(page) {
                 <div class="post-card" data-post-id="${post.id}">
                     <h3 class="post-card-title">${post.title}</h3>
                     <p class="post-card-category">${post.category}</p>
+                    <p class="post-card-date">${post.date}</p>
                 </div>
             `).join('')}
         </div>

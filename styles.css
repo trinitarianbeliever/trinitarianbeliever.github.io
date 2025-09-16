@@ -96,7 +96,7 @@ nav a:hover {
 
 main {
     padding: 0;
-    max-width: 900px;
+    max-width: 1300px; /* Author edit change this to resize desktop full widht */
     margin: 0 auto;
 }
 
@@ -141,7 +141,7 @@ main {
     border-radius: 8px;
     padding: 1.5rem;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
+    text-align: left;
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: flex;
@@ -165,6 +165,14 @@ main {
     font-size: 0.9rem;
     color: #666;
     font-style: italic;
+    margin: 0.25rem 0;
+}
+
+.post-card-date {
+    font-size: 0.8rem;
+    color: #999;
+    font-style: normal;
+    margin: 0;
 }
 
 .full-post {
