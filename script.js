@@ -1,5 +1,5 @@
-const POSTS_PER_PAGE = 9;
-const CATEGORIES_PER_PAGE = 40;
+const POSTS_PER_PAGE = 9; //how many posts in home page
+const CATEGORIES_PER_PAGE = 40; // how many categories in categories page
 let currentPagePosts = 1;
 let currentPageCategories = 1;
 
