@@ -14,16 +14,33 @@ const searchButton = document.getElementById('search-button');
 const hamburgerBtn = document.getElementById('hamburger-menu');
 const headerNav = document.getElementById('header-nav');
 
-// Function to fetch post data from the JSON file
+
+
+// Function to fetch post data from the JSON files
 async function fetchPostsData() {
     try {
-        const response = await fetch('./posts.json');
-        if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
+        // Use Promise.all to fetch all three JSON files concurrently
+        const [postsResponse, secondaryResponse, standbyResponse] = await Promise.all([
+            fetch('./handle/posts.json'),
+            fetch('./handle/secondary.json'),
+            fetch('./handle/standby.json')
+        ]);
+
+        if (!postsResponse.ok || !secondaryResponse.ok || !standbyResponse.ok) {
+            // Check for HTTP errors from any of the responses
+            throw new Error(`One or more HTTP errors occurred! Status: ${postsResponse.status}, ${secondaryResponse.status}, and ${standbyResponse.status}`);
         }
-        allPosts = await response.json();
+
+        const postsData = await postsResponse.json();
+        const secondaryData = await secondaryResponse.json();
+        const standbyData = await standbyResponse.json();
+
+        // Combine the posts from all three files into a single array
+        allPosts = [...postsData, ...secondaryData, ...standbyData];
+
         // Sort posts by date in descending order to show the latest first
         allPosts.sort((a, b) => new Date(b.date) - new Date(a.date));
+        
         allCategories = [...new Set(allPosts.map(post => post.category))];
         renderRoute('home');
     } catch (error) {
@@ -31,6 +48,8 @@ async function fetchPostsData() {
         contentContainer.innerHTML = `<p class="error-message">Failed to load posts. Please try again later.</p>`;
     }
 }
+
+
 
 // Function to fetch and render the full post content from a Markdown file
 async function fetchAndRenderFullPost(post) {
@@ -156,34 +175,89 @@ function renderPostsByCategory(category) {
     `;
 }
 
+// Pure JavaScript Levenshtein distance function (keep this the same)
+function levenshteinDistance(s1, s2) {
+    s1 = s1.toLowerCase();
+    s2 = s2.toLowerCase();
+    const costs = [];
+    for (let i = 0; i <= s1.length; i++) {
+        let lastValue = i;
+        for (let j = 0; j <= s2.length; j++) {
+            if (i === 0) {
+                costs[j] = j;
+            } else if (j > 0) {
+                let newValue = costs[j - 1];
+                if (s1.charAt(i - 1) !== s2.charAt(j - 1)) {
+                    newValue = Math.min(Math.min(newValue, lastValue), costs[j]) + 1;
+                }
+                costs[j - 1] = lastValue;
+                lastValue = newValue;
+            }
+        }
+        if (i > 0) {
+            costs[s2.length] = lastValue;
+        }
+    }
+    return costs[s2.length];
+}
+
+
 // Function to render search results
 function renderSearchResults(query) {
     const lowerCaseQuery = query.toLowerCase();
     
-    // Remove all non-alphanumeric characters and then split into words
+    // List of common words to ignore in search
+    const stopWords = ['a', 'an', 'the', 'and', 'but', 'or', 'in', 'on', 'at', 'is', 'it', 'for', 'of', 'how', 'to', 'be', 'more'];
+
     const queryWords = lowerCaseQuery
         .replace(/[^\w\s]/g, '') // Removes punctuation
         .split(' ')
-        .filter(word => word.length > 0); // Filters out any empty strings from multiple spaces
+        .filter(word => word.length > 0 && !stopWords.includes(word)); // Filters out empty strings and stop words
 
     const filteredPosts = allPosts.filter(post => {
         const lowerCaseTitle = post.title.toLowerCase();
+        const titleWords = lowerCaseTitle.replace(/[^\w\s]/g, '').split(' ');
         
-        // Check if every word from the query exists in the post title
-        return queryWords.every(word => lowerCaseTitle.includes(word));
+        // --- NEW SEARCH LOGIC ---
+        // 1. Require a match for ALL of the meaningful query words
+        // 2. The match can be a fuzzy match (levenshtein distance <= 2)
+        return queryWords.every(queryWord => {
+            return titleWords.some(titleWord => {
+                // If the words are very different lengths, skip the distance check
+                if (Math.abs(queryWord.length - titleWord.length) > 2) {
+                    return false;
+                }
+                // Check if the Levenshtein distance is low enough
+                return levenshteinDistance(queryWord, titleWord) <= 2;
+            });
+        });
     });
+
+    // Sanitize the user input for security
+    const sanitizedQuery = query.replace(/</g, "&lt;").replace(/>/g, "&gt;");
 
     let html = `
         <div class="post-list search-results">
-            <h2>Search Results for "${query}"</h2>
+            <h2>Search Results for "${sanitizedQuery}"</h2>
     `;
 
     if (filteredPosts.length > 0) {
-        html += filteredPosts.map(post => `
-            <p class="post-title" data-post-id="${post.id}">
-                ${post.title}
-            </p>
-        `).join('');
+        html += filteredPosts.map(post => {
+            // Add highlighting for the matched words (if desired)
+            let highlightedTitle = post.title;
+            const originalQueryWords = query.replace(/[^\w\s]/g, '').split(' ').filter(word => word.length > 0);
+            
+            originalQueryWords.forEach(word => {
+                const regex = new RegExp(`(${word})`, 'gi');
+                highlightedTitle = highlightedTitle.replace(regex, `<span class="highlight">$1</span>`);
+            });
+
+            return `
+                <p class="post-title" data-post-id="${post.id}">
+                    ${highlightedTitle}
+                </p>
+            `;
+        }).join('');
     } else {
         html += `<p style="text-align: center;">No results found.</p>`;
     }
@@ -191,6 +265,9 @@ function renderSearchResults(query) {
     html += `<a href="#" class="back-button" onclick="renderRoute('home'); return false;">&larr; Back to Home</a></div>`;
     contentContainer.innerHTML = html;
 }
+
+
+
 
 // Main rendering function based on a route/state
 function renderRoute(route, param = null) {
