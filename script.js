@@ -159,9 +159,19 @@ function renderPostsByCategory(category) {
 // Function to render search results
 function renderSearchResults(query) {
     const lowerCaseQuery = query.toLowerCase();
-    const filteredPosts = allPosts.filter(post =>
-        post.title.toLowerCase().includes(lowerCaseQuery)
-    );
+    
+    // Remove all non-alphanumeric characters and then split into words
+    const queryWords = lowerCaseQuery
+        .replace(/[^\w\s]/g, '') // Removes punctuation
+        .split(' ')
+        .filter(word => word.length > 0); // Filters out any empty strings from multiple spaces
+
+    const filteredPosts = allPosts.filter(post => {
+        const lowerCaseTitle = post.title.toLowerCase();
+        
+        // Check if every word from the query exists in the post title
+        return queryWords.every(word => lowerCaseTitle.includes(word));
+    });
 
     let html = `
         <div class="post-list search-results">
