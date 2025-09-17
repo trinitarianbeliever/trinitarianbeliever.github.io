@@ -163,7 +163,7 @@ main {
 
 .post-card-category {
     font-size: 0.9rem;
-    color: #666;
+    color: #555;
     margin: 0.25rem 0;
 }
 
@@ -243,7 +243,7 @@ main {
 }
 
 .pagination button {
-    background-color: #7a1f1f;
+    background-color: #353333;
     color: white;
     border: none;
     padding: 0.5rem 1rem;
