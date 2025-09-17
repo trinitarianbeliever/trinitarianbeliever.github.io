@@ -7,7 +7,7 @@ body {
 }
 
 header {
-    background-color: #7a1f1f;
+    background-color: #353333;
     color: white;
     padding: 1rem 2rem;
     display: flex;
@@ -48,7 +48,7 @@ nav ul {
 nav a {
     color: white;
     text-decoration: none;
-    font-size: 1rem;
+    font-size: 17px;
     font-weight: 400;
     padding: 0.5rem 1rem;
     transition: text-decoration 0.3s ease;
@@ -81,7 +81,7 @@ nav a:hover {
 }
 
 #search-button {
-    background-color: #7a1f1f;
+    background-color: #353333;
     color: white;
     border: 1px solid white;
     cursor: pointer;
@@ -90,8 +90,8 @@ nav a:hover {
 }
 
 #search-button:hover {
-    background-color: #5d1616;
-    border-color: #5d1616;
+    background-color: #242323;
+    border-color: #fff;
 }
 
 main {
@@ -157,14 +157,13 @@ main {
 .post-card-title {
     font-size: 1.2rem;
     font-weight: bold;
-    margin: 0 0 0.5rem 0;
-    color: #7a1f1f;
+    margin: 0 0 0 0;
+    color: #353333;
 }
 
 .post-card-category {
     font-size: 0.9rem;
     color: #666;
-    font-style: italic;
     margin: 0.25rem 0;
 }
 
@@ -180,7 +179,7 @@ main {
 }
 
 .full-post h1 {
-    text-align: center;
+    text-align: left;
     margin-top: 0;
     margin-bottom: 1rem;
 }
@@ -227,12 +226,12 @@ main {
     text-align: center;
     font-weight: bold;
     text-decoration: none;
-    color: #7a1f1f;
+    color: #353333;
     transition: color 0.3s ease;
 }
 
 .back-button:hover {
-    color: #5d1616;
+    color: #000000;
 }
 
 .pagination {
