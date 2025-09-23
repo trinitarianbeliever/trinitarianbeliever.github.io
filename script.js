@@ -204,69 +204,75 @@ function levenshteinDistance(s1, s2) {
 
 // Function to render search results
 function renderSearchResults(query) {
-    const lowerCaseQuery = query.toLowerCase();
+    // Escape the user query for safe display in the title
+    const escapedQuery = query.replace(/</g, '&lt;').replace(/>/g, '&gt;');
     
-    // List of common words to ignore in search
+    // Convert the query to lowercase and remove punctuation for search logic
+    const lowerCaseQuery = query.toLowerCase().replace(/[^\w\s]/g, '');
+    const queryWords = lowerCaseQuery.split(' ').filter(word => word.length > 0);
+
     const stopWords = ['a', 'an', 'the', 'and', 'but', 'or', 'in', 'on', 'at', 'is', 'it', 'for', 'of', 'how', 'to', 'be', 'more'];
 
-    const queryWords = lowerCaseQuery
-        .replace(/[^\w\s]/g, '') // Removes punctuation
-        .split(' ')
-        .filter(word => word.length > 0 && !stopWords.includes(word)); // Filters out empty strings and stop words
-
     const filteredPosts = allPosts.filter(post => {
-        const lowerCaseTitle = post.title.toLowerCase();
-        const titleWords = lowerCaseTitle.replace(/[^\w\s]/g, '').split(' ');
+        const lowerCaseTitle = post.title.toLowerCase().replace(/[^\w\s]/g, '');
+        const titleWords = lowerCaseTitle.split(' ');
         
-        // --- NEW SEARCH LOGIC ---
-        // 1. Require a match for ALL of the meaningful query words
-        // 2. The match can be a fuzzy match (levenshtein distance <= 2)
         return queryWords.every(queryWord => {
+            if (stopWords.includes(queryWord)) {
+                return true; // Ignore stop words in the search logic
+            }
             return titleWords.some(titleWord => {
-                // If the words are very different lengths, skip the distance check
                 if (Math.abs(queryWord.length - titleWord.length) > 2) {
                     return false;
                 }
-                // Check if the Levenshtein distance is low enough
                 return levenshteinDistance(queryWord, titleWord) <= 2;
             });
         });
     });
 
-    // Sanitize the user input for security
-    const sanitizedQuery = query.replace(/</g, "&lt;").replace(/>/g, "&gt;");
-
-    let html = `
-        <div class="post-list search-results">
-            <h2>Search Results for "${sanitizedQuery}"</h2>
-    `;
+    // Clear the content container
+    contentContainer.innerHTML = '';
+    
+    const searchResultsDiv = document.createElement('div');
+    searchResultsDiv.classList.add('post-list', 'search-results');
+    
+    // Create and append the heading
+    const heading = document.createElement('h2');
+    heading.textContent = `Search Results for "${query}"`;
+    searchResultsDiv.appendChild(heading);
 
     if (filteredPosts.length > 0) {
-        html += filteredPosts.map(post => {
-            // Add highlighting for the matched words (if desired)
-            let highlightedTitle = post.title;
-            const originalQueryWords = query.replace(/[^\w\s]/g, '').split(' ').filter(word => word.length > 0);
+        filteredPosts.forEach(post => {
+            const p = document.createElement('p');
+            p.classList.add('post-title');
+            p.dataset.postId = post.id;
             
-            originalQueryWords.forEach(word => {
-                const regex = new RegExp(`(${word})`, 'gi');
-                highlightedTitle = highlightedTitle.replace(regex, `<span class="highlight">$1</span>`);
-            });
-
-            return `
-                <p class="post-title" data-post-id="${post.id}">
-                    ${highlightedTitle}
-                </p>
-            `;
-        }).join('');
+            // This is how you re-implement highlighting safely
+            const regex = new RegExp(`(${queryWords.join('|')})`, 'gi');
+            const highlightedTitle = post.title.replace(regex, `<span class="highlight">$1</span>`);
+            
+            p.innerHTML = highlightedTitle;
+            searchResultsDiv.appendChild(p);
+        });
     } else {
-        html += `<p style="text-align: center;">No results found.</p>`;
+        const noResultsP = document.createElement('p');
+        noResultsP.style.textAlign = 'center';
+        noResultsP.textContent = 'No results found.';
+        searchResultsDiv.appendChild(noResultsP);
     }
     
-    html += `<a href="#" class="back-button" onclick="renderRoute('home'); return false;">&larr; Back to Home</a></div>`;
-    contentContainer.innerHTML = html;
+    const backButton = document.createElement('a');
+    backButton.href = '#';
+    backButton.classList.add('back-button');
+    backButton.textContent = '← Back to Home';
+    backButton.onclick = () => {
+        renderRoute('home');
+        return false;
+    };
+    searchResultsDiv.appendChild(backButton);
+    
+    contentContainer.appendChild(searchResultsDiv);
 }
-
-
 
 
 // Main rendering function based on a route/state
