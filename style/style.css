@@ -29,6 +29,15 @@ body {
     margin: 0;
 }
 
+.header .site-name a {
+    text-decoration: none;
+    color: white;
+}
+
+.header .site-name a:hover {
+    color: #ddd;
+}
+
 /* Hide the checkbox */
 .menu-toggle-checkbox {
     display: none;
