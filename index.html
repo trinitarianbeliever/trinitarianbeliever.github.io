@@ -5,778 +5,790 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trinitarian Believer</title>
     <link rel="icon" type="image/x-icon" href="./img/favicon.jpg">
-<style>
-body {
-    font-family: Georgia, serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-    color: #333;
-}
+    <style>
+        /* Global styles */
+        body {
+            font-family: Georgia, serif;
+            margin: 0;
+            padding: 0;
+            background-color: #FFFFFF;
+            color: #2C3E50;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
 
-header {
-    background-color: #353333;
-    color: white;
-    padding: 1rem 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-}
+        /* Basic container for content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            flex: 1;
+            min-height: 50vh; 
+        }
 
-.logo {
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin: 0;
-}
+        /* Header styling */
+        .header {
+            background-color: #353333;
+            color: #ECF0F1;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative; /* Needed for positioning the absolute nav menu */
+        }
 
-.hamburger {
-    display: none;
-    font-size: 2rem;
-    cursor: pointer;
-    color: white;
-    font-weight: bold;
-}
+        .header .site-name {
+            font-weight: 700;
+            font-size: 30px;
+            margin: 0;
+        }
 
-.header-nav {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-    flex-wrap: wrap;
-}
+        /* Menu button styling for mobile */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: 1px solid #ECF0F1;
+            color: #ECF0F1;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+        }
 
-nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    gap: 0.5rem;
-}
+        /* Container for nav links and search box */
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            transition: max-height 0.3s ease-out;
+        }
 
-nav a {
-    color: white;
-    text-decoration: none;
-    font-size: 17px;
-    font-weight: 400;
-    padding: 0.5rem 1rem;
-    transition: text-decoration 0.3s ease;
-    cursor: pointer;
-}
+        .header nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 1.5rem;
+            justify-content: flex-end;
+        }
 
-nav a:hover {
-    text-decoration: underline;
-}
+        .header nav ul li a {
+            color: #ECF0F1;
+            text-decoration: none;
+            font-size: 18px;
+            transition: color 0.3s ease;
+            position: relative;
+        }
 
-.search-container {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
+        .header nav ul li a:hover {
+            color: #ECF0F1;
+        }
+        
+        /* Underline animation */
+        .header nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background-color: #ECF0F1;
+            transition: width 0.3s ease, left 0.3s ease;
+        }
+        
+        .header nav ul li a:hover::after {
+            width: 100%;
+            left: 0;
+        }
 
-#search-input,
-#search-button {
-    padding: 0.5rem 1rem;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    font-size: 1rem;
-    font-family: inherit;
-    height: 2.5rem;
-    box-sizing: border-box;
-}
+        .search-box {
+            display: flex;
+            align-items: center;
+            margin-left: 1.5rem;
+            gap: 0.5rem;
+        }
 
-#search-input {
-    border-color: #ccc;
-}
+        .search-box input {
+            border: none;
+            padding: 0.5rem 0.75rem;
+            border-radius: 8px;
+            font-size: 16px;
+            outline: none;
+            background-color: #ECF0F1;
+            color: #2C3E50;
+        }
 
-#search-button {
-    background-color: #353333;
-    color: white;
-    border: 1px solid white;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-}
+        .search-box button {
+            background-color: #353333;
+            color: #ECF0F1;
+            border: 1px solid #ECF0F1;
+            padding: 7px 20px;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
 
-#search-button:hover {
-    background-color: #242323;
-    border-color: #fff;
-}
+        .search-box button:hover {
+            background-color: #4B4B4B;
+        }
 
-main {
-    padding: 0;
-    max-width: 1300px; /* Author edit change this to resize desktop full widht */
-    margin: 0 auto;
-}
+        /* Main content styling */
+        .content-section {
+            padding: 2rem;
+            background-color: #FFFFFF;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
 
-.post-list {
-    padding: 2rem;
-    text-align: center;
-}
+        /* Updated h2 font size to make it more prominent for full posts */
+        .container h2 {
+            font-size: 2rem;
+            color: #333;
+            margin-top: 0;
+            margin-bottom: 1rem;
+        }
+        
+        /* The h3 for blog previews remains at 2rem for a hierarchical look */
+        .blog-post h3 {
+            font-size: 2rem;
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+        
+        .blog-post p {
+            font-size: 20px;
+            margin-top: 0;
+            color: #333;
+        }
+        
+        /* New: Standardized the font size for the date to match the content */
+        .blog-date {
+            font-size: 1.1rem;
+            color: #7F8C8D;
+            font-style: italic;
+        }
 
-.post-list h2, .category-list h2, .full-post h2 {
-    text-align: center;
-    font-size: 2rem;
-    margin-bottom: 2rem;
-}
+        /* Blog grid styling */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
 
-/* Category post list styles - maintains existing design */
-.post-list.category-posts .post-title,
-.post-list.search-results .post-title {
-    font-style: italic;
-    text-decoration: underline;
-    font-size: 1.25rem;
-    margin-bottom: 1rem;
-    cursor: pointer;
-    text-align: center;
-}
+        /* Updated styling for blog post cards */
+        .blog-grid .blog-post {
+            background-color: #FFFFFF;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
 
-.post-list.category-posts .post-title:hover,
-.post-list.search-results .post-title:hover {
-    color: #7a1f1f;
-}
+        .blog-grid .blog-post:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
 
-/* New grid-based layout for the home page */
-.post-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-    padding: 2rem;
-}
+        .full-post .blog-post {
+            border: none;
+            box-shadow: none;
+            background-color: transparent;
+        }
+        
+        /* Pagination styling */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 2rem;
+            gap: 1rem;
+        }
+        
+        .pagination button {
+            background-color: #353333;
+            color: #ECF0F1;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
 
-.post-card {
-    background-color: white;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 1.5rem;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: left;
-    cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
+        .pagination button:hover:not(:disabled) {
+            background-color: #4B4B4B;
+        }
 
-.post-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
+        .pagination button:disabled {
+            background-color: #BDC3C7;
+            cursor: not-allowed;
+        }
+        
+        /* Topics page styling */
+        .topics-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
 
-.post-card-title {
-    font-size: 1.2rem;
-    font-weight: bold;
-    margin: 0 0 0 0;
-    color: #353333;
-}
+        .topic-button {
+            background-color: #f0f0f0;
+            color: #000000;
+            border: 1px solid #ccc;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
 
-.post-card-category {
-    font-size: 0.9rem;
-    color: #555;
-    margin: 0.25rem 0;
-}
+        .topic-button:hover {
+            background-color: #e0e0e0;
+        }
+        
+        /* Random page styling */
+        .random-post-button {
+            display: block;
+            margin: 2rem auto 0;
+            background-color: #515151;
+            color: #ECF0F1;
+            border: none;
+            padding: 0.75rem 2rem;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
 
-.post-card-date {
-    font-size: 0.8rem;
-    color: #999;
-    font-style: normal;
-    margin: 0;
-}
+        .random-post-button:hover {
+            background-color: #3D3D3D;
+        }
 
-.full-post {
-    padding: 2rem;
-}
+        /* Responsive adjustments for mobile */
+        @media (max-width: 768px) {
+            .header {
+                flex-wrap: nowrap;
+                justify-content: space-between;
+                padding: 1rem;
+            }
 
-.full-post h1 {
-    text-align: left;
-    margin-top: 0;
-    margin-bottom: 1rem;
-}
+            .header .site-name {
+                flex-grow: 0;
+                flex-shrink: 0;
+                margin-right: 1rem;
+            }
 
-.full-post p {
-    line-height: 1.6;
-}
+            /* Updated mobile nav dropdown styling */
+            .nav-container {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                max-width: 300px; /* New: Constrain the width */
+                background-color: #353333;
+                flex-direction: column;
+                padding: 1rem 2rem;
+                display: none; /* Hidden by default */
+                z-index: 100;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            }
 
-.category-list {
-    padding: 2rem;
-    text-align: center;
-}
+            .nav-container.active {
+                display: flex;
+            }
 
-.category-list ul {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1rem;
-}
+            .menu-toggle {
+                display: block;
+            }
+            
+            .header nav ul {
+                flex-direction: column;
+                gap: 1rem; /* Increase gap for better touch targets */
+                width: 100%;
+                align-items: flex-start;
+            }
 
-.category-list li a {
-    background-color: #f0f0f0;
-    color: #333;
-    padding: 0.75rem 1.5rem;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-    text-decoration: none;
-    font-weight: 700;
-    transition: background-color 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
-    display: block;
-}
+            .search-box {
+                margin-left: 0;
+                margin-top: 1rem;
+                width: 100%;
+                flex-direction: column;
+                align-items: center;
+            }
 
-.category-list li a:hover {
-    background-color: #e0e0e0;
-    border-color: #999;
-    transform: translateY(-2px);
-}
-
-.back-button {
-    display: block;
-    margin-top: 2rem;
-    text-align: center;
-    font-weight: bold;
-    text-decoration: none;
-    color: #353333;
-    transition: color 0.3s ease;
-}
-
-.back-button:hover {
-    color: #000000;
-}
-
-.pagination {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-    margin-top: 2rem;
-    margin-bottom: 3rem;
-}
-
-.pagination button {
-    background-color: #353333;
-    color: white;
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-}
-
-.pagination button:hover:not(:disabled) {
-    background-color: #5d1616;
-}
-
-.pagination button:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
-}
-
-@media (max-width: 992px) {
-    header {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 1rem;
-    }
-    
-    .header-top {
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 1rem;
-    }
-
-    .logo {
-        margin: 0;
-    }
-
-    .hamburger {
-        display: block;
-    }
-    
-    .header-nav {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        gap: 1rem;
-        align-items: flex-start;
-    }
-    
-    .header-nav.is-open {
-        display: flex;
-    }
-
-    nav {
-        width: 100%;
-    }
-
-    nav ul {
-        flex-direction: column;
-        gap: 0.5rem;
-        width: 100%;
-        align-items: flex-start;
-    }
-
-    nav a {
-        display: block;
-        text-align: left;
-    }
-
-    .search-container {
-        width: 100%;
-        justify-content: flex-start;
-        flex-direction: row;
-        gap: 0.5rem;
-    }
-    
-    #search-input {
-        width: auto;
-    }
-
-    /* Responsive grid for homepage */
-    .post-grid {
-        grid-template-columns: repeat(2, 1fr); /* 2 columns for tablets */
-    }
-}
-
-@media (max-width: 600px) {
-    .post-grid {
-        grid-template-columns: 1fr; /* 1 column for mobile */
-        padding: 1rem;
-    }
-    .post-card {
-        padding: 1rem;
-    }
-}
-</style>
+            .search-box input {
+                width: 100%;
+            }
+        }
+    </style>
 </head>
 <body>
 
-    <header>
-        <div class="header-top">
-            <div class="logo">
-                Trinitarian Believer
-            </div>
-            <div class="hamburger" id="hamburger-menu">☰</div>
-        </div>
-        <div class="header-nav" id="header-nav">
+    <header class="header">
+        <div class="site-name">Trinitarian Believer</div>
+        <button class="menu-toggle" aria-label="Toggle navigation menu">&#9776;</button>
+        <div class="nav-container">
             <nav>
                 <ul>
-                    <li><a href="#" id="latest-link">Home</a></li>
-                    <li><a href="#" id="home-link">Blog</a></li>
-                    <li><a href="#" id="categories-link">Topics</a></li>
-                    <li><a href="#" id="random-link">Random</a></li>
-                    
+                    <li><a href="#" data-page="home">Home</a></li>
+                    <li><a href="#" data-page="blog">Blog</a></li>
+                    <li><a href="#" data-page="topics">Topics</a></li>
+                    <li><a href="#" data-page="random">Random</a></li>
                 </ul>
             </nav>
-            <div class="search-container">
-                <input type="search" id="search-input" placeholder="Search posts..." />
-                <button id="search-button">Search</button>
+            <div class="search-box">
+                <input type="text" id="search-input" placeholder="Ask a Bible Question">
+                <button type="button" id="search-button">Search</button>
             </div>
         </div>
     </header>
-    
-    <main id="content-container">
-        <!-- Content will be dynamically injected here -->
-    </main>
 
-<script>
-const POSTS_PER_PAGE = 9; //how many posts in home page
-const CATEGORIES_PER_PAGE = 40; // how many categories in categories page
-let currentPagePosts = 1;
-let currentPageCategories = 1;
+    <main class="container" id="main-content">
+        </main>
 
-let allPosts = [];
-let allCategories = [];
+    <script>
+        "use strict";
 
-const contentContainer = document.getElementById('content-container');
-const homeLink = document.getElementById('home-link');
-const categoriesLink = document.getElementById('categories-link');
-const randomLink = document.getElementById('random-link');
-const latestLink = document.getElementById('latest-link'); // Added latest link
-const searchInput = document.getElementById('search-input');
-const searchButton = document.getElementById('search-button');
-const hamburgerBtn = document.getElementById('hamburger-menu');
-const headerNav = document.getElementById('header-nav');
+        let blogPosts = [];
 
-
-
-// Function to fetch post data from the JSON files
-async function fetchPostsData() {
-    try {
-        // Use Promise.all to fetch all three JSON files concurrently
-        const [postsResponse, secondaryResponse, standbyResponse] = await Promise.all([
-            fetch('./handle/posts.json'),
-            fetch('./handle/secondary.json'),
-            fetch('./handle/standby.json')
-        ]);
-
-        if (!postsResponse.ok || !secondaryResponse.ok || !standbyResponse.ok) {
-            // Check for HTTP errors from any of the responses
-            throw new Error(`One or more HTTP errors occurred! Status: ${postsResponse.status}, ${secondaryResponse.status}, and ${standbyResponse.status}`);
-        }
-
-        const postsData = await postsResponse.json();
-        const secondaryData = await secondaryResponse.json();
-        const standbyData = await standbyResponse.json();
-
-        // Combine the posts from all three files into a single array
-        allPosts = [...postsData, ...secondaryData, ...standbyData];
-
-        // Sort posts by date in descending order to show the latest first
-        allPosts.sort((a, b) => new Date(b.date) - new Date(a.date));
-        
-        allCategories = [...new Set(allPosts.map(post => post.category))];
-        renderRoute('latest'); // Changed default from 'home' to 'latest'
-    } catch (error) {
-        console.error("Could not fetch posts data:", error);
-        contentContainer.innerHTML = `<p class="error-message">Failed to load posts. Please try again later.</p>`;
-    }
-}
-
-
-
-// Function to fetch and render the full post content from a Markdown file
-async function fetchAndRenderFullPost(post) {
-    // Show a loading state
-    contentContainer.innerHTML = `
-        <h1 class="post-title-header">${post.title}</h1>
-        <p class="loading-message">Loading article...</p>
-    `;
-    try {
-        const response = await fetch(post.filePath);
-        if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        const markdownContent = await response.text();
-        // Simple Markdown to HTML conversion (for headings and paragraphs)
-        const htmlContent = markdownContent
-            .replace(/^# (.*$)/gim, '<h2>$1</h2>')
-            .replace(/\n\n/g, '<p>')
-            .replace(/\n/g, '<br/>');
-
-        contentContainer.innerHTML = `
-            <div class="full-post">
-                <h1 class="post-title-header">${post.title}</h1>
-                ${htmlContent}
-                <a href="#" class="back-button" onclick="renderRoute('home'); return false;">&larr; Back to Home</a>
-            </div>
-        `;
-    } catch (error) {
-        console.error("Could not fetch post content:", error);
-        contentContainer.innerHTML = `<p class="error-message">Failed to load post content. Please try again later.</p>`;
-    }
-}
-
-// Function to render the home page with paginated post cards
-function renderHomePage(page) {
-    const startIndex = (page - 1) * POSTS_PER_PAGE;
-    const endIndex = startIndex + POSTS_PER_PAGE;
-    const postsToShow = allPosts.slice(startIndex, endIndex);
-    const totalPages = Math.ceil(allPosts.length / POSTS_PER_PAGE);
-
-    contentContainer.innerHTML = `
-        <div class="post-grid">
-            ${postsToShow.map(post => `
-                <div class="post-card" data-post-id="${post.id}">
-                    <h3 class="post-card-title">${post.title}</h3>
-                    <p class="post-card-category">${post.category}</p>
-                    <p class="post-card-date">${post.date}</p>
-                </div>
-            `).join('')}
-        </div>
-        <div class="pagination">
-            <button id="prev-posts" ${page === 1 ? 'disabled' : ''}>Previous</button>
-            <span>Page ${page} of ${totalPages}</span>
-            <button id="next-posts" ${page === totalPages ? 'disabled' : ''}>Next</button>
-        </div>
-    `;
-
-    document.getElementById('prev-posts').addEventListener('click', () => {
-        if (currentPagePosts > 1) {
-            currentPagePosts--;
-            renderRoute('home');
-        }
-    });
-
-    document.getElementById('next-posts').addEventListener('click', () => {
-        if (currentPagePosts < totalPages) {
-            currentPagePosts++;
-            renderRoute('home');
-        }
-    });
-}
-
-// Function to render the categories page
-function renderCategoriesPage(page) {
-    const startIndex = (page - 1) * CATEGORIES_PER_PAGE;
-    const endIndex = startIndex + CATEGORIES_PER_PAGE;
-    const categoriesToShow = allCategories.slice(startIndex, endIndex);
-    const totalPages = Math.ceil(allCategories.length / CATEGORIES_PER_PAGE);
-
-    contentContainer.innerHTML = `
-        <div class="category-list">
-            <ul>
-                ${categoriesToShow.map(category => `
-                    <li><a href="#" data-category="${category}">${category}</a></li>
-                `).join('')}
-            </ul>
-            <div class="pagination">
-                <button id="prev-categories" ${page === 1 ? 'disabled' : ''}>Previous</button>
-                <span>Page ${page} of ${totalPages}</span>
-                <button id="next-categories" ${page === totalPages ? 'disabled' : ''}>Next</button>
-            </div>
-        </div>
-    `;
-
-    document.getElementById('prev-categories').addEventListener('click', () => {
-        if (currentPageCategories > 1) {
-            currentPageCategories--;
-            renderRoute('categories');
-        }
-    });
-
-    document.getElementById('next-categories').addEventListener('click', () => {
-        if (currentPageCategories < totalPages) {
-            currentPageCategories++;
-            renderRoute('categories');
-        }
-    });
-}
-
-// Function to render a list of posts filtered by a category
-function renderPostsByCategory(category) {
-    const filteredPosts = allPosts.filter(post => post.category === category);
-    contentContainer.innerHTML = `
-        <div class="post-list category-posts">
-            <h2>Articles in ${category}</h2>
-            ${filteredPosts.map(post => `
-                <p class="post-title" data-post-id="${post.id}">
-                    ${post.title}
-                </p>
-            `).join('')}
-            <a href="#" class="back-button" onclick="renderRoute('categories'); return false;">&larr; Back to Categories</a>
-        </div>
-    `;
-}
-
-// Function to render a random post
-function renderRandomPost() {
-    if (allPosts.length > 0) {
-        const randomIndex = Math.floor(Math.random() * allPosts.length);
-        const randomPost = allPosts[randomIndex];
-        fetchAndRenderFullPost(randomPost);
-    } else {
-        contentContainer.innerHTML = `<p class="error-message">No posts available to display randomly.</p>`;
-    }
-}
-
-// Function to render the latest post
-function renderLatestPost() {
-    if (allPosts.length > 0) {
-        const latestPost = allPosts[0]; // The first post is the latest due to sorting
-        fetchAndRenderFullPost(latestPost);
-    } else {
-        contentContainer.innerHTML = `<p class="error-message">No posts available to display.</p>`;
-    }
-}
-
-
-// Pure JavaScript Levenshtein distance function (keep this the same)
-function levenshteinDistance(s1, s2) {
-    s1 = s1.toLowerCase();
-    s2 = s2.toLowerCase();
-    const costs = [];
-    for (let i = 0; i <= s1.length; i++) {
-        let lastValue = i;
-        for (let j = 0; j <= s2.length; j++) {
-            if (i === 0) {
-                costs[j] = j;
-            } else if (j > 0) {
-                let newValue = costs[j - 1];
-                if (s1.charAt(i - 1) !== s2.charAt(j - 1)) {
-                    newValue = Math.min(Math.min(newValue, lastValue), costs[j]) + 1;
+        // Function to fetch blog posts from a JSON file
+        async function fetchBlogPosts() {
+            try {
+                const response = await fetch('./handle/posts.json');
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
                 }
-                costs[j - 1] = lastValue;
-                lastValue = newValue;
+                blogPosts = await response.json();
+                // After fetching, render the initial page
+                renderHomePage();
+            } catch (error) {
+                console.error('Could not fetch blog posts:', error);
+                document.getElementById('main-content').textContent = 'Failed to load blog posts. Please try again later.';
             }
         }
-        if (i > 0) {
-            costs[s2.length] = lastValue;
-        }
-    }
-    return costs[s2.length];
-}
-
-
-// Function to render search results
-function renderSearchResults(query) {
-    // Escape the user query for safe display in the title
-    const escapedQuery = query.replace(/</g, '&lt;').replace(/>/g, '&gt;');
-    
-    // Convert the query to lowercase and remove punctuation for search logic
-    const lowerCaseQuery = query.toLowerCase().replace(/[^\w\s]/g, '');
-    const queryWords = lowerCaseQuery.split(' ').filter(word => word.length > 0);
-
-    const stopWords = ['a', 'an', 'the', 'and', 'but', 'or', 'in', 'on', 'at', 'is', 'it', 'for', 'of', 'how', 'to', 'be', 'more'];
-
-    const filteredPosts = allPosts.filter(post => {
-        const lowerCaseTitle = post.title.toLowerCase().replace(/[^\w\s]/g, '');
-        const titleWords = lowerCaseTitle.split(' ');
         
-        return queryWords.every(queryWord => {
-            if (stopWords.includes(queryWord)) {
-                return true; // Ignore stop words in the search logic
-            }
-            return titleWords.some(titleWord => {
-                if (Math.abs(queryWord.length - titleWord.length) > 2) {
-                    return false;
+        // Asynchronously fetches content from a separate HTML file.
+        async function fetchPostContent(filePath) {
+            try {
+                const response = await fetch(filePath);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
                 }
-                return levenshteinDistance(queryWord, titleWord) <= 2;
+                const content = await response.text();
+                // Use DOMParser to safely parse the HTML and extract the body content
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(content, 'text/html');
+                const bodyContent = doc.body.innerHTML;
+                return bodyContent;
+            } catch (error) {
+                console.error('Could not fetch post content:', error);
+                return `<p>Failed to load post content. Please try again later.</p>`;
+            }
+        }
+
+        // === Utility Functions for Rendering ===
+
+        // Creates a blog post element for the blog index view.
+        function createBlogCardElement(post) {
+            const article = document.createElement('article');
+            article.classList.add('blog-post');
+            article.dataset.id = post.id;
+            
+            const title = document.createElement('h3');
+            title.textContent = post.title;
+
+            const date = document.createElement('p');
+            date.classList.add('blog-date');
+            date.textContent = `Published on: ${post.date}`;
+
+            const topics = document.createElement('div');
+            topics.textContent = `Topics: ${post.topics.join(', ')}`;
+
+            article.appendChild(title);
+            article.appendChild(date);
+            article.appendChild(topics);
+
+            return article;
+        }
+
+        // Creates a full blog post element.
+        async function createFullPostElement(post) {
+            const article = document.createElement('article');
+            article.classList.add('blog-post', 'full-post');
+            
+            const title = document.createElement('h2');
+            title.textContent = post.title;
+
+            const date = document.createElement('p');
+            date.classList.add('blog-date');
+            date.textContent = `Published on: ${post.date}`;
+            
+            const content = document.createElement('div');
+            // Check if filePath exists, if so, fetch and inject content
+            if (post.filePath) {
+                const fetchedContent = await fetchPostContent(post.filePath);
+                content.innerHTML = fetchedContent; // Use innerHTML to render HTML content
+            } else {
+                content.innerHTML = `<p>${post.content}</p>`;
+            }
+
+            article.appendChild(title);
+            article.appendChild(date);
+            article.appendChild(content);
+
+            return article;
+        }
+
+        // === Page Rendering Functions ===
+
+        // Renders the Home page with the latest blog post.
+        async function renderHomePage() {
+            const mainContent = document.getElementById('main-content');
+            mainContent.innerHTML = ''; 
+            
+            if (blogPosts.length > 0) {
+                const sortedPosts = [...blogPosts].sort((a, b) => new Date(b.date) - new Date(a.date));
+                const latestPost = sortedPosts[0];
+
+                const postElement = await createFullPostElement(latestPost);
+                
+                const contentWrapper = document.createElement('div');
+                contentWrapper.classList.add('content-section');
+                contentWrapper.appendChild(postElement);
+
+                mainContent.appendChild(contentWrapper);
+            } else {
+                mainContent.textContent = 'No blog posts available.';
+            }
+        }
+
+        // Renders the Blog page with pagination.
+        function renderBlogPage(pageNumber = 1) {
+            const postsPerPage = 9;
+            const mainContent = document.getElementById('main-content');
+            mainContent.innerHTML = '';
+            
+            const sortedPosts = [...blogPosts].sort((a, b) => new Date(b.date) - new Date(a.date));
+            
+            const startIndex = (pageNumber - 1) * postsPerPage;
+            const endIndex = startIndex + postsPerPage;
+            const postsToDisplay = sortedPosts.slice(startIndex, endIndex);
+
+            const heading = document.createElement('h2');
+            heading.textContent = 'All Blog Posts';
+
+            const blogGrid = document.createElement('div');
+            blogGrid.classList.add('blog-grid');
+
+            postsToDisplay.forEach(post => {
+                const postElement = createBlogCardElement(post);
+                blogGrid.appendChild(postElement);
+            });
+
+            const pagination = document.createElement('div');
+            pagination.classList.add('pagination');
+            
+            const prevButton = document.createElement('button');
+            prevButton.textContent = 'Previous';
+            prevButton.disabled = pageNumber === 1;
+            prevButton.addEventListener('click', () => renderBlogPage(pageNumber - 1));
+
+            const nextButton = document.createElement('button');
+            nextButton.textContent = 'Next';
+            nextButton.disabled = endIndex >= blogPosts.length;
+            nextButton.addEventListener('click', () => renderBlogPage(pageNumber + 1));
+            
+            const pageInfo = document.createElement('span');
+            pageInfo.textContent = `Page ${pageNumber}`;
+
+            pagination.appendChild(prevButton);
+            pagination.appendChild(pageInfo);
+            pagination.appendChild(nextButton);
+
+            mainContent.appendChild(heading);
+            mainContent.appendChild(blogGrid);
+            mainContent.appendChild(pagination);
+        }
+
+        // Renders a list of blog posts filtered by a specific topic.
+        function renderTopicPosts(topic) {
+            const mainContent = document.getElementById('main-content');
+            mainContent.innerHTML = '';
+
+            const filteredPosts = blogPosts.filter(post => post.topics.includes(topic));
+            
+            const heading = document.createElement('h2');
+            heading.textContent = `Posts on "${topic}"`;
+
+            const blogGrid = document.createElement('div');
+            blogGrid.classList.add('blog-grid');
+            
+            if (filteredPosts.length > 0) {
+                filteredPosts.forEach(post => {
+                    const postElement = createBlogCardElement(post);
+                    blogGrid.appendChild(postElement);
+                });
+            } else {
+                const noPosts = document.createElement('p');
+                noPosts.textContent = 'No posts found for this topic.';
+                blogGrid.appendChild(noPosts);
+            }
+
+            mainContent.appendChild(heading);
+            mainContent.appendChild(blogGrid);
+        }
+
+        // Renders the Topics page with pagination.
+        function renderTopicsPage(pageNumber = 1) {
+            const mainContent = document.getElementById('main-content');
+            mainContent.innerHTML = '';
+
+            const allTopics = new Set();
+            blogPosts.forEach(post => {
+                post.topics.forEach(topic => allTopics.add(topic));
+            });
+            const uniqueTopics = Array.from(allTopics).sort();
+
+            const topicsPerPage = 40;
+            const startIndex = (pageNumber - 1) * topicsPerPage;
+            const endIndex = startIndex + topicsPerPage;
+            const topicsToDisplay = uniqueTopics.slice(startIndex, endIndex);
+
+            const topicsGrid = document.createElement('div');
+            topicsGrid.classList.add('topics-grid');
+            
+            topicsToDisplay.forEach(topic => {
+                const topicButton = document.createElement('button');
+                topicButton.classList.add('topic-button');
+                topicButton.textContent = topic;
+                topicButton.addEventListener('click', () => renderTopicPosts(topic));
+                topicsGrid.appendChild(topicButton);
+            });
+            
+            const pagination = document.createElement('div');
+            pagination.classList.add('pagination');
+            
+            const prevButton = document.createElement('button');
+            prevButton.textContent = 'Previous';
+            prevButton.disabled = pageNumber === 1;
+            prevButton.addEventListener('click', () => renderTopicsPage(pageNumber - 1));
+            
+            const nextButton = document.createElement('button');
+            nextButton.textContent = 'Next';
+            nextButton.disabled = endIndex >= uniqueTopics.length;
+            nextButton.addEventListener('click', () => renderTopicsPage(pageNumber + 1));
+
+            const pageInfo = document.createElement('span');
+            pageInfo.textContent = `Page ${pageNumber}`;
+
+            pagination.appendChild(prevButton);
+            pagination.appendChild(pageInfo);
+            pagination.appendChild(nextButton);
+
+            mainContent.appendChild(topicsGrid);
+            mainContent.appendChild(pagination);
+        }
+
+        // Renders the Random page with a single random post.
+        async function renderRandomPage() {
+            const mainContent = document.getElementById('main-content');
+            mainContent.innerHTML = '';
+            
+            if (blogPosts.length > 0) {
+                const randomIndex = Math.floor(Math.random() * blogPosts.length);
+                const randomPost = blogPosts[randomIndex];
+                
+                const postElement = await createFullPostElement(randomPost);
+                
+                const contentWrapper = document.createElement('div');
+                contentWrapper.classList.add('content-section');
+                contentWrapper.appendChild(postElement);
+                
+                mainContent.appendChild(contentWrapper);
+            } else {
+                mainContent.textContent = 'No blog posts available.';
+            }
+
+            const newButton = document.createElement('button');
+            newButton.classList.add('random-post-button');
+            newButton.textContent = 'Show Another Random Post';
+            newButton.addEventListener('click', renderRandomPage);
+
+            mainContent.appendChild(newButton);
+        }
+
+        // Renders a single post on its own page
+        async function renderSinglePost(postId) {
+            const mainContent = document.getElementById('main-content');
+            mainContent.innerHTML = '';
+
+            const post = blogPosts.find(p => p.id == postId);
+            if (post) {
+                const postElement = await createFullPostElement(post);
+                
+                const contentWrapper = document.createElement('div');
+                contentWrapper.classList.add('content-section');
+                contentWrapper.appendChild(postElement);
+                
+                mainContent.appendChild(contentWrapper);
+            } else {
+                mainContent.textContent = 'Post not found.';
+            }
+        }
+        
+        // --- Search Functionality ---
+
+        // List of common English words to ignore in search queries
+        const stopWords = ['a', 'an', 'and', 'are', 'as', 'at', 'be', 'but', 'by', 'for', 'if', 'in', 'into', 'is', 'it', 'no', 'not', 'of', 'on', 'or', 'such', 'that', 'the', 'their', 'then', 'there', 'these', 'they', 'this', 'to', 'was', 'will', 'with', 'how', 'what', 'who'];
+
+        // Sanitizes a string to prevent XSS attacks by creating a temporary element
+        function sanitizeInput(str) {
+            const tempDiv = document.createElement('div');
+            tempDiv.textContent = str;
+            return tempDiv.innerHTML;
+        }
+
+        // Processes a string for search by lowercasing, removing punctuation, and filtering out stop words.
+        function processTextForSearch(text) {
+            const lowercasedText = text.toLowerCase();
+            const alphanumericText = lowercasedText.replace(/[^\w\s]/g, '');
+            const words = alphanumericText.split(/\s+/);
+            return words.filter(word => word.length > 0 && !stopWords.includes(word));
+        }
+
+        // Renders the search results based on title matches
+        function renderSearchResults(query) {
+            const mainContent = document.getElementById('main-content');
+            mainContent.innerHTML = '';
+
+            // Sanitize and process the user's query
+            const sanitizedQuery = sanitizeInput(query);
+            const processedQueryWords = processTextForSearch(sanitizedQuery);
+
+            const results = [];
+
+            if (processedQueryWords.length > 0) {
+                // Loop through all blog posts
+                for (const post of blogPosts) {
+                    const processedTitleWords = processTextForSearch(post.title);
+                    let score = 0;
+
+                    // Calculate a score for each post based on keyword matches in the title
+                    processedQueryWords.forEach(queryWord => {
+                        // Check if the title includes the query word
+                        if (processedTitleWords.join(' ').includes(queryWord)) {
+                            score += 1;
+                        }
+                    });
+
+                    // Only include the post in the results if it has a positive score
+                    if (score > 0) {
+                        results.push({ post, score });
+                    }
+                }
+            }
+
+            // Sort results by the score (most relevant first)
+            results.sort((a, b) => b.score - a.score);
+
+            const heading = document.createElement('h2');
+            heading.textContent = `Search Results for "${sanitizedQuery}"`;
+            mainContent.appendChild(heading);
+
+            const blogGrid = document.createElement('div');
+            blogGrid.classList.add('blog-grid');
+
+            if (results.length > 0) {
+                results.forEach(result => {
+                    const postElement = createBlogCardElement(result.post);
+                    blogGrid.appendChild(postElement);
+                });
+            } else {
+                const noResults = document.createElement('p');
+                noResults.textContent = 'No posts found matching your search.';
+                blogGrid.appendChild(noResults);
+            }
+            mainContent.appendChild(blogGrid);
+        }
+
+        // Handles the search event
+        function handleSearch() {
+            const searchInput = document.getElementById('search-input');
+            const query = searchInput.value.trim();
+            if (query) {
+                renderSearchResults(query);
+            }
+        }
+
+        // --- Event Listeners and Initial Load ---
+
+        // Event listener for the mobile menu toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navContainer = document.querySelector('.nav-container');
+
+        menuToggle.addEventListener('click', () => {
+            navContainer.classList.toggle('active');
+        });
+        
+        // Simple page routing based on data attributes
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', (event) => {
+                event.preventDefault(); // Prevent default link behavior
+                const page = event.target.dataset.page;
+                
+                // Close mobile menu
+                navContainer.classList.remove('active');
+
+                // Route to the correct page based on the data attribute
+                switch (page) {
+                    case 'home':
+                        renderHomePage();
+                        break;
+                    case 'blog':
+                        renderBlogPage();
+                        break;
+                    case 'topics':
+                        renderTopicsPage();
+                        break;
+                    case 'random':
+                        renderRandomPage();
+                        break;
+                    default:
+                        renderHomePage(); // Default to home page
+                }
             });
         });
-    });
 
-    // Clear the content container
-    contentContainer.innerHTML = '';
-    
-    const searchResultsDiv = document.createElement('div');
-    searchResultsDiv.classList.add('post-list', 'search-results');
-    
-    // Create and append the heading
-    const heading = document.createElement('h2');
-    heading.textContent = `Search Results for "${query}"`;
-    searchResultsDiv.appendChild(heading);
-
-    if (filteredPosts.length > 0) {
-        filteredPosts.forEach(post => {
-            const p = document.createElement('p');
-            p.classList.add('post-title');
-            p.dataset.postId = post.id;
-            
-            // This is how you re-implement highlighting safely
-            const regex = new RegExp(`(${queryWords.join('|')})`, 'gi');
-            const highlightedTitle = post.title.replace(regex, `<span class="highlight">$1</span>`);
-            
-            p.innerHTML = highlightedTitle;
-            searchResultsDiv.appendChild(p);
+        // Event listener for blog post clicks on the blog page
+        document.getElementById('main-content').addEventListener('click', (event) => {
+            const blogPostElement = event.target.closest('.blog-post');
+            if (blogPostElement && blogPostElement.dataset.id) {
+                renderSinglePost(blogPostElement.dataset.id);
+            }
         });
-    } else {
-        const noResultsP = document.createElement('p');
-        noResultsP.style.textAlign = 'center';
-        noResultsP.textContent = 'No results found.';
-        searchResultsDiv.appendChild(noResultsP);
-    }
-    
-    const backButton = document.createElement('a');
-    backButton.href = '#';
-    backButton.classList.add('back-button');
-    backButton.textContent = '← Back to Home';
-    backButton.onclick = () => {
-        renderRoute('home');
-        return false;
-    };
-    searchResultsDiv.appendChild(backButton);
-    
-    contentContainer.appendChild(searchResultsDiv);
-}
 
+        // Add event listeners for the search functionality
+        document.getElementById('search-button').addEventListener('click', handleSearch);
+        document.getElementById('search-input').addEventListener('keypress', (event) => {
+            if (event.key === 'Enter') {
+                handleSearch();
+            }
+        });
 
-// Main rendering function based on a route/state
-function renderRoute(route, param = null) {
-    if (route === 'home') {
-        renderHomePage(currentPagePosts);
-    } else if (route === 'categories') {
-        renderCategoriesPage(currentPageCategories);
-    } else if (route === 'category-posts') {
-        renderPostsByCategory(param);
-    } else if (route === 'full-post') {
-        fetchAndRenderFullPost(param);
-    } else if (route === 'random') {
-        renderRandomPost();
-    } else if (route === 'latest') { // New route for the latest post
-        renderLatestPost();
-    } else {
-        // Default to home page
-        renderHomePage(currentPagePosts);
-    }
-    // Close the mobile menu on navigation
-    if (window.innerWidth <= 992) {
-        headerNav.classList.remove('is-open');
-    }
-}
-
-// Event listeners for navigation
-homeLink.addEventListener('click', (e) => {
-    e.preventDefault();
-    currentPagePosts = 1; // Reset to the first page
-    renderRoute('home');
-});
-
-categoriesLink.addEventListener('click', (e) => {
-    e.preventDefault();
-    currentPageCategories = 1; // Reset to the first page
-    renderRoute('categories');
-});
-
-randomLink.addEventListener('click', (e) => {
-    e.preventDefault();
-    renderRoute('random');
-});
-
-latestLink.addEventListener('click', (e) => {
-    e.preventDefault();
-    renderRoute('latest');
-});
-
-// Event listener for dynamic content clicks (post titles and categories)
-contentContainer.addEventListener('click', (e) => {
-    const postCard = e.target.closest('.post-card');
-    if (postCard) {
-        const postId = parseInt(postCard.dataset.postId);
-        const post = allPosts.find(p => p.id === postId);
-        if (post) {
-            renderRoute('full-post', post);
-        }
-    } else if (e.target.matches('.post-title')) {
-        const postId = parseInt(e.target.dataset.postId);
-        const post = allPosts.find(p => p.id === postId);
-        if (post) {
-            renderRoute('full-post', post);
-        }
-    } else if (e.target.matches('[data-category]')) {
-        e.preventDefault();
-        const category = e.target.dataset.category;
-        renderRoute('category-posts', category);
-    }
-});
-
-// Event listener for hamburger menu
-hamburgerBtn.addEventListener('click', () => {
-    headerNav.classList.toggle('is-open');
-});
-
-// Event listeners for search
-searchButton.addEventListener('click', (e) => {
-    e.preventDefault();
-    const query = searchInput.value.trim();
-    if (query) {
-        renderSearchResults(query);
-    }
-});
-
-searchInput.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') {
-        e.preventDefault();
-        searchButton.click();
-    }
-});
-
-// Initial render: fetch data and then render the page
-document.addEventListener('DOMContentLoaded', () => {
-    fetchPostsData();
-});
-</script>
+        // Initial page load: fetch data and render the Home page
+        document.addEventListener('DOMContentLoaded', () => {
+            fetchBlogPosts();
+        });
+    </script>
 </body>
 </html>
-
