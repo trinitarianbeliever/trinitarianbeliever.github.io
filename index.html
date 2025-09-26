@@ -149,6 +149,7 @@
             color: #333;
             margin-top: 0;
             margin-bottom: 1rem;
+            text-align: left;
         }
         
         /* The h3 for blog previews remains at 2rem for a hierarchical look */
@@ -275,6 +276,65 @@
             background-color: #3D3D3D;
         }
 
+        /* --- NEW: Book Page Styling --- */
+        .books-grid {
+            /* Changed to flex-wrap to allow books to move to the next row when space collapses. */
+            display: flex;
+            flex-wrap: wrap; /* ADDED: Enables wrapping */
+            gap: 1.5rem; /* ADDED: Spacing between cards */
+            justify-content: center;
+        }
+
+        .book-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            background-color: #f9f9f9;
+            /* Adjusted padding to make the card even more compact */
+            padding: 1rem; 
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            /* Added responsive sizing */
+            flex-basis: 180px; /* Ideal width for the card */
+            flex-grow: 1; /* Allow slight growth */
+            flex-shrink: 0; /* Prevent too much shrinking on wrap */
+        }
+
+        .book-card img {
+            /* Max width set to control the overall card size */
+            width: 100%;
+            max-width: 150px;
+            height: auto;
+            border-radius: 6px;
+            margin-bottom: 0.75rem; /* Reduced margin below the image */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .book-card img:hover {
+            transform: scale(1.02);
+        }
+        
+        /* Removed the redundant/unused .book-card h3 styling now that the element is removed in JS */
+
+        .book-card a {
+            background-color: #353333;
+            color: #ECF0F1;
+            padding: 6px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            white-space: nowrap; /* Prevent button text from wrapping */
+        }
+
+        .book-card a:hover {
+            background-color: #4B4B4B;
+        }
+        /* --- END NEW STYLING --- */
+
+
         /* Responsive adjustments for mobile */
         @media (max-width: 768px) {
             .header {
@@ -343,6 +403,7 @@
                     <li><a href="#" data-page="home">Home</a></li>
                     <li><a href="#" data-page="blog">Blog</a></li>
                     <li><a href="#" data-page="topics">Topics</a></li>
+                    <li><a href="#" data-page="books">Books</a></li> <!-- NEW: Added Books link -->
                     <li><a href="#" data-page="random">Random</a></li>
                 </ul>
             </nav>
@@ -360,6 +421,63 @@
         "use strict";
 
         let blogPosts = [];
+        
+        // NEW: Book data structure with placeholder images (Expanded to 50 books)
+        const bookList = [
+            // Existing books 1-31
+            { id: 1, coverUrl: "https://placehold.co/200x300/353333/FFFFFF?text=Book+1", link: "#buy-book-1" },
+            { id: 2, coverUrl: "https://placehold.co/200x300/6C7A89/FFFFFF?text=Book+2", link: "#buy-book-2" },
+            { id: 3, coverUrl: "https://placehold.co/200x300/AAB7B8/353333?text=Book+3", link: "#buy-book-3" },
+            { id: 4, coverUrl: "https://placehold.co/200x300/353333/FFFFFF?text=Book+4", link: "#buy-book-4" },
+            { id: 5, coverUrl: "https://placehold.co/200x300/6C7A89/FFFFFF?text=Book+5", link: "#buy-book-5" },
+            { id: 6, coverUrl: "https://placehold.co/200x300/AAB7B8/353333?text=Book+6", link: "#buy-book-6" },
+            { id: 7, coverUrl: "https://placehold.co/200x300/6C7A89/FFFFFF?text=Book+7", link: "#buy-book-7" },
+            { id: 8, coverUrl: "https://placehold.co/200x300/AAB7B8/353333?text=Book+8", link: "#buy-book-8" },
+            { id: 9, coverUrl: "https://placehold.co/200x300/353333/FFFFFF?text=Book+9", link: "#buy-book-9" },
+            { id: 10, coverUrl: "https://placehold.co/200x300/6C7A89/FFFFFF?text=Book+10", link: "#buy-book-10" },
+            { id: 11, coverUrl: "https://placehold.co/200x300/AAB7B8/353333?text=Book+11", link: "#buy-book-11" },
+            { id: 12, coverUrl: "https://placehold.co/200x300/6C7A89/FFFFFF?text=Book+12", link: "#buy-book-12" },
+            { id: 13, coverUrl: "https://placehold.co/200x300/AAB7B8/353333?text=Book+13", link: "#buy-book-13" },
+            { id: 14, coverUrl: "https://placehold.co/200x300/353333/FFFFFF?text=Book+14", link: "#buy-book-14" },
+            { id: 15, coverUrl: "https://placehold.co/200x300/6C7A89/FFFFFF?text=Book+15", link: "#buy-book-15" },
+            { id: 16, coverUrl: "https://placehold.co/200x300/AAB7B8/353333?text=Book+16", link: "#buy-book-16" },
+            { id: 17, coverUrl: "https://placehold.co/200x300/6C7A89/FFFFFF?text=Book+17", link: "#buy-book-17" },
+            { id: 18, coverUrl: "https://placehold.co/200x300/AAB7B8/353333?text=Book+18", link: "#buy-book-18" },
+            { id: 19, coverUrl: "https://placehold.co/200x300/353333/FFFFFF?text=Book+19", link: "#buy-book-19" },
+            { id: 20, coverUrl: "https://placehold.co/200x300/6C7A89/FFFFFF?text=Book+20", link: "#buy-book-20" },
+            { id: 21, coverUrl: "https://placehold.co/200x300/AAB7B8/353333?text=Book+21", link: "#buy-book-21" },
+            { id: 22, coverUrl: "https://placehold.co/200x300/6C7A89/FFFFFF?text=Book+22", link: "#buy-book-22" },
+            { id: 23, coverUrl: "https://placehold.co/200x300/AAB7B8/353333?text=Book+23", link: "#buy-book-23" },
+            { id: 24, coverUrl: "https://placehold.co/200x300/353333/FFFFFF?text=Book+24", link: "#buy-book-24" },
+            { id: 25, coverUrl: "https://placehold.co/200x300/6C7A89/FFFFFF?text=Book+25", link: "#buy-book-25" },
+            { id: 26, coverUrl: "https://placehold.co/200x300/AAB7B8/353333?text=Book+26", link: "#buy-book-26" },
+            { id: 27, coverUrl: "https://placehold.co/200x300/6C7A89/FFFFFF?text=Book+27", link: "#buy-book-27" },
+            { id: 28, coverUrl: "https://placehold.co/200x300/AAB7B8/353333?text=Book+28", link: "#buy-book-28" },
+            { id: 29, coverUrl: "https://placehold.co/200x300/353333/FFFFFF?text=Book+29", link: "#buy-book-29" },
+            { id: 30, coverUrl: "https://placehold.co/200x300/6C7A89/FFFFFF?text=Book+30", link: "#buy-book-30" },
+            { id: 31, coverUrl: "https://placehold.co/200x300/AAB7B8/353333?text=Book+31", link: "#buy-book-31" },
+            // New books 32-50 for a total of 50
+            { id: 32, coverUrl: "https://placehold.co/200x300/FF5733/FFFFFF?text=Book+32", link: "#buy-book-32" },
+            { id: 33, coverUrl: "https://placehold.co/200x300/FFBD33/353333?text=Book+33", link: "#buy-book-33" },
+            { id: 34, coverUrl: "https://placehold.co/200x300/33FF57/353333?text=Book+34", link: "#buy-book-34" },
+            { id: 35, coverUrl: "https://placehold.co/200x300/33C7FF/FFFFFF?text=Book+35", link: "#buy-book-35" },
+            { id: 36, coverUrl: "https://placehold.co/200x300/3339FF/FFFFFF?text=Book+36", link: "#buy-book-36" },
+            { id: 37, coverUrl: "https://placehold.co/200x300/9B33FF/FFFFFF?text=Book+37", link: "#buy-book-37" },
+            { id: 38, coverUrl: "https://placehold.co/200x300/FF33DA/353333?text=Book+38", link: "#buy-book-38" },
+            { id: 39, coverUrl: "https://placehold.co/200x300/FF3366/FFFFFF?text=Book+39", link: "#buy-book-39" },
+            { id: 40, coverUrl: "https://placehold.co/200x300/33FF9B/353333?text=Book+40", link: "#buy-book-40" },
+            { id: 41, coverUrl: "https://placehold.co/200x300/33FFDE/353333?text=Book+41", link: "#buy-book-41" },
+            { id: 42, coverUrl: "https://placehold.co/200x300/3366FF/FFFFFF?text=Book+42", link: "#buy-book-42" },
+            { id: 43, coverUrl: "https://placehold.co/200x300/6633FF/FFFFFF?text=Book+43", link: "#buy-book-43" },
+            { id: 44, coverUrl: "https://placehold.co/200x300/FF33D2/353333?text=Book+44", link: "#buy-book-44" },
+            { id: 45, coverUrl: "https://placehold.co/200x300/FF6633/FFFFFF?text=Book+45", link: "#buy-book-45" },
+            { id: 46, coverUrl: "https://placehold.co/200x300/66FF33/353333?text=Book+46", link: "#buy-book-46" },
+            { id: 47, coverUrl: "https://placehold.co/200x300/33FF66/353333?text=Book+47", link: "#buy-book-47" },
+            { id: 48, coverUrl: "https://placehold.co/200x300/339BFF/FFFFFF?text=Book+48", link: "#buy-book-48" },
+            { id: 49, coverUrl: "https://placehold.co/200x300/9BFF33/353333?text=Book+49", link: "#buy-book-49" },
+            { id: 50, coverUrl: "https://placehold.co/200x300/FF9B33/353333?text=Book+50", link: "#buy-book-50" }
+        ];
+
 
         // Function to fetch blog posts from a JSON file
         async function fetchBlogPosts() {
@@ -450,6 +568,84 @@
         }
 
         // === Page Rendering Functions ===
+        
+        // UPDATED: Renders the Books page with pagination logic.
+        function renderBooksPage(pageNumber = 1) {
+            const mainContent = document.getElementById('main-content');
+            mainContent.innerHTML = '';
+            
+            const booksPerPage = 20; // Limit to 20 books per page
+            const totalBooks = bookList.length;
+            const totalPages = Math.ceil(totalBooks / booksPerPage);
+            
+            // Calculate indices for the current page
+            const startIndex = (pageNumber - 1) * booksPerPage;
+            const endIndex = startIndex + booksPerPage;
+            const booksToDisplay = bookList.slice(startIndex, endIndex); // Slice the array
+            
+            const heading = document.createElement('h2');
+            heading.textContent = 'Our Published Works';
+            mainContent.appendChild(heading);
+
+            const booksGrid = document.createElement('div');
+            booksGrid.classList.add('books-grid');
+
+            if (booksToDisplay.length > 0) {
+                booksToDisplay.forEach(book => {
+                    const card = document.createElement('div');
+                    card.classList.add('book-card');
+
+                    const cover = document.createElement('img');
+                    cover.src = book.coverUrl;
+                    cover.alt = `Book ${book.id} Cover`;
+                    cover.onerror = function() {
+                        this.onerror=null; 
+                        this.src='https://placehold.co/200x300/CCCCCC/353333?text=Cover+Not+Found';
+                    };
+                    
+                    const link = document.createElement('a');
+                    link.href = book.link;
+                    link.textContent = 'DOWNLOAD PDF';
+                    link.setAttribute('target', '_blank'); // Open in new tab
+                    
+                    card.appendChild(cover);
+                    card.appendChild(link);
+                    
+                    booksGrid.appendChild(card);
+                });
+                mainContent.appendChild(booksGrid);
+
+                // --- Pagination UI for Books ---
+                const pagination = document.createElement('div');
+                pagination.classList.add('pagination');
+                
+                const prevButton = document.createElement('button');
+                prevButton.textContent = 'Previous';
+                prevButton.disabled = pageNumber === 1;
+                // Re-render the page by decreasing the page number
+                prevButton.addEventListener('click', () => renderBooksPage(pageNumber - 1));
+
+                const pageInfo = document.createElement('span');
+                pageInfo.textContent = `Page ${pageNumber} of ${totalPages} (${totalBooks} total)`;
+
+                const nextButton = document.createElement('button');
+                nextButton.textContent = 'Next';
+                // Disable if the end index is greater than or equal to the total books
+                nextButton.disabled = endIndex >= totalBooks;
+                // Re-render the page by increasing the page number
+                nextButton.addEventListener('click', () => renderBooksPage(pageNumber + 1));
+                
+                pagination.appendChild(prevButton);
+                pagination.appendChild(pageInfo);
+                pagination.appendChild(nextButton);
+                
+                mainContent.appendChild(pagination);
+
+            } else {
+                mainContent.innerHTML += '<p>No books currently available on this page.</p>';
+            }
+        }
+
 
         // Renders the Home page with the latest blog post.
         async function renderHomePage() {
@@ -759,6 +955,9 @@
                         break;
                     case 'topics':
                         renderTopicsPage();
+                        break;
+                    case 'books': 
+                        renderBooksPage(); // Start at page 1
                         break;
                     case 'random':
                         renderRandomPage();
