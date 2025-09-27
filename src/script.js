@@ -476,7 +476,7 @@
             <h1 class="page-title">About Trinitarian Believer</h1>
             <div style="max-width: 800px; margin: 0 auto; padding: 20px; background-color: var(--color-white); border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
                 <p style="font-size: 1.1rem; text-align: justify;">
-                    Trinitarian Believer is a platform dedicated to exploring, defending, and celebrating the historic Christian doctrine of the Trinity. Our mission is to provide accessible, deeply theological content that encourages believers to better understand the Father, the Son, and the Holy Spirit as one God in three persons. We seek to honor the rich tradition of the Church while applying these timeless truths to contemporary spiritual life, promoting serious engagement with Scripture, church history, and systematic theology.
+                    1 Peter 3:15
                 </p>
             </div>
         `;
