@@ -2,7 +2,7 @@
 :root {
     --color-dark-bg: #ffffff;        /* Changed to WHITE background for light theme */
     --color-text-light: #333333;     /* Changed to DARK GRAY text for light theme */
-    --color-accent-gold: #416043;    /* UPDATED: New dark green academic accent color */
+    --color-accent-gold: #393c39;    /* UPDATED: New dark green academic accent color */
     --font-family-serif: 'Georgia', 'Times New Roman', serif;
 }
 
@@ -77,7 +77,7 @@ body {
 .nav-menu a {
     color: var(--color-text-light); /* Uses Dark Gray */
     text-decoration: none;
-    font-size: 1.1rem; 
+    font-size: 1.2rem; 
     transition: color 0.2s;
 }
 
