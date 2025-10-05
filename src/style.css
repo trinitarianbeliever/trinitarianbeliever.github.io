@@ -28,17 +28,18 @@ body {
     flex-wrap: wrap; /* Allows wrapping on smaller screens */
     justify-content: space-between;
     align-items: center;
-    padding: 1.5rem 0;
+    padding: 1rem 0;
     border-bottom: 1px solid var(--color-accent-gold); /* Simple separator */
     margin-bottom: 2rem;
 }
 
 .logo {
-    font-size: 1.8rem;
+    font-size: 2rem;
     font-weight: 700;
     color: var(--color-accent-gold);
     text-decoration: none;
     flex-shrink: 0;
+    letter-spacing: 2.2px;
 }
 
 /* Mobile Menu Toggle (CSS Hack) */
@@ -48,7 +49,7 @@ body {
     cursor: pointer;
     color: var(--color-accent-gold);
     order: 2; /* Position next to the logo on mobile */
-    line-height: 1;
+
     padding: 0 0.5rem;
 }
 
