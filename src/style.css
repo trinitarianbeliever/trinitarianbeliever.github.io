@@ -78,8 +78,9 @@ body {
 .nav-menu a {
     color: var(--color-text-light); /* Uses Dark Gray */
     text-decoration: none;
-    font-size: 1.2rem; 
+    font-size: 1.1rem; 
     transition: color 0.2s;
+    text-transform: uppercase;
 }
 
 .nav-menu a:hover {
@@ -114,6 +115,7 @@ body {
     cursor: pointer;
     font-size: 0.9rem;
     transition: background-color 0.2s;
+    text-transform: uppercase;
 }
 
 .search-box button:hover {
