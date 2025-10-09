@@ -3,7 +3,7 @@
     --color-dark-bg: #ffffff;        /* Changed to WHITE background for light theme */
     --color-text-light: #333333;     /* Changed to DARK GRAY text for light theme */
     --color-accent-gold: #393c39;    /* UPDATED: New dark green academic accent color */
-    --font-family-serif: 'Georgia', 'Times New Roman', serif;
+    --font-family-serif: 'Lato', sans-serif;
 }
 
 /* Basic Setup */
@@ -34,12 +34,13 @@ body {
 }
 
 .logo {
-    font-size: 2rem;
-    font-weight: 700;
+    font-size: 1.9rem;
+    font-weight: 400;
     color: var(--color-accent-gold);
     text-decoration: none;
     flex-shrink: 0;
     letter-spacing: 2.2px;
+    text-transform: uppercase;
 }
 
 /* Mobile Menu Toggle (CSS Hack) */

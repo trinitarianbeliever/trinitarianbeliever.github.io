@@ -3,7 +3,7 @@
     --color-dark-bg: #ffffff;        /* Changed to WHITE background for light theme */
     --color-text-light: #333333;     /* Changed to DARK GRAY text for light theme */
     --color-accent-gold: #393c39;    /* UPDATED: New dark green academic accent color */
-    --font-family-serif: 'Georgia', 'Times New Roman', serif;
+    --font-family-serif: 'Lato', sans-serif;
 }
 
 /* Basic Setup */
@@ -34,12 +34,13 @@ body {
 }
 
 .logo {
-    font-size: 2rem;
-    font-weight: 700;
+    font-size: 1.9rem;
+    font-weight: 400;
     color: var(--color-accent-gold);
     text-decoration: none;
     flex-shrink: 0;
     letter-spacing: 2.2px;
+    text-transform: uppercase;
 }
 
 /* Mobile Menu Toggle (CSS Hack) */
@@ -251,7 +252,7 @@ h2 {
 }
 
 .card-title {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
     font-weight: 700;
     margin-bottom: 0.5rem;
     line-height: 1.4;
@@ -270,7 +271,7 @@ h2 {
 
 .card-date {
     font-size: 1rem;
-    color: #888;
+    color: #5c5a5a;
     margin-bottom: 0.2rem;
 }
 
@@ -280,9 +281,6 @@ h2 {
     text-decoration: none;
     font-weight: 400;
     font-size: 1.2rem;
-    margin-top: 1rem;
-    padding-top: 0.5rem;
-    border-top: 1px dashed #e0e0e0;
     transition: opacity 0.2s;
 }
 
