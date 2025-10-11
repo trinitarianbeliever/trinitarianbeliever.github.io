@@ -1,0 +1,26 @@
+body {
+    margin: 0 20px;
+}
+
+h1 {
+    font-weight: 400;
+}
+
+hr {
+    border-top: 1px solid #eaeaea;
+    border-bottom: none;
+}
+
+a, p {
+    color: #333;
+}
+
+a {
+    font-weight: normal;
+}
+
+.highlight {
+    color: #111;
+    text-decoration: none;
+    text-transform: uppercase;
+}
