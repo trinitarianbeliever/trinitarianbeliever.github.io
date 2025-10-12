@@ -212,97 +212,102 @@ h2 {
     color: var(--color-accent-gold);
 }
 
-/* Article List (index.html, books.html) */
-.article-list {
-    list-style: none;
+/* -------------------------------------- */
+/* --- NEW: Article Card Grid Layout --- */
+/* -------------------------------------- */
+
+.article-grid {
+    display: grid;
+    /* Default for large screens (3 columns) */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 2rem; /* Margin between blog cards */
+    padding: 1rem 0;
 }
 
-.article-list li {
-    padding: 0.75rem 0;
-    border-bottom: 1px solid #ddd; /* Lightened separator line */
+.article-card {
+    background-color: var(--color-dark-bg); /* White background */
+    /* Removed standard border to use box-shadow for fading effect */
+    border-radius: 8px; /* Rounded corners for the card */
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s, box-shadow 0.3s;
+
+    /* Custom Box Shadow to simulate a fading border: 
+       - The first shadow is a light, general lift.
+       - The second shadow is offset down (4px) and blurred (8px) with higher opacity 
+         to make the bottom side look more defined/darker than the top, creating the fade effect. 
+    */
+    box-shadow: 
+        0 0 10px rgba(0, 0, 0, 0.05), /* Very soft, light lift all around */
+        0 4px 8px rgba(0, 0, 0, 0.12); /* Heavier shadow concentrated at the bottom */
 }
 
-.article-list li:last-child {
-    border-bottom: none;
+.article-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 
+        0 0 10px rgba(0, 0, 0, 0.1), /* Slightly stronger lift on hover */
+        0 12px 20px rgba(0, 0, 0, 0.2); /* More pronounced bottom shadow on hover */
 }
 
-.article-list a {
-    display: block;
-    color: var(--color-text-light); /* Uses Dark Gray */
+.card-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+}
+
+.card-title a {
+    color: var(--color-text-light); /* Dark text */
     text-decoration: none;
-    font-size: 1.1rem;
-    font-weight: 500;
     transition: color 0.2s;
+    font-weight: 400;
 }
 
-.article-list a:hover {
+.card-title a:hover {
     color: var(--color-accent-gold);
+}
+
+.card-date {
+    font-size: 1rem;
+    color: #5c5a5a;
+    margin-bottom: 0.2rem;
+}
+
+.read-more-link {
+    display: inline-block;
+    color: var(--color-accent-gold);
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 1.2rem;
+    transition: opacity 0.2s;
+}
+
+.read-more-link:hover {
+    opacity: 0.8;
     text-decoration: underline;
 }
 
-.article-meta {
-    font-size: 0.85rem;
-    color: #666; /* Darkened for better contrast on white background */
-    margin-top: 0.2rem;
+/* --- Responsive Adjustments for Grid --- */
+
+/* Tablet/Medium Screens (max-width: 1024px) - Change to 2 columns */
+@media (max-width: 1024px) {
+    .article-grid {
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 1.5rem;
+    }
 }
 
-/* Category Text Cloud (category.html) */
-.category-cloud {
-    padding: 1rem 0;
-    display: flex;
-    flex-wrap: wrap; /* Allows links to wrap naturally */
-    gap: 1.2rem; /* Space between links */
-    justify-content: center; /* Center the cloud for aesthetic balance */
-    text-align: center;
+/* Mobile Screens (max-width: 650px) - Change to 1 column */
+@media (max-width: 650px) {
+    .article-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
 }
 
-.category-cloud a {
-    text-decoration: none;
-    display: inline-block;
-    color: var(--color-text-light);
-    transition: color 0.2s, opacity 0.2s;
-    margin: 0.5rem 0.8rem; /* Additional spacing around each tag */
-}
-
-.category-cloud a:hover {
-    color: #000;
-}
-
-/* Size Classes for Tag Cloud Effect (T1 is largest/most important) */
-.tag-t1 {
-    font-size: 2.2rem;
-    font-weight: 700;
-    line-height: 1.2;
-}
-
-.tag-t2 {
-    font-size: 1.8rem;
-    font-weight: 600;
-    line-height: 1.2;
-    opacity: 0.9;
-}
-
-.tag-t3 {
-    font-size: 1.4rem;
-    font-weight: 500;
-    line-height: 1.2;
-    opacity: 0.85;
-}
-
-.tag-t4 {
-    font-size: 1.1rem;
-    font-weight: 400;
-    line-height: 1.2;
-    opacity: 0.8;
-}
-
-/* Responsive adjustments for mobile: Make T1 a bit smaller */
-@media (max-width: 600px) {
-    .tag-t1 { font-size: 1.8rem; }
-    .tag-t2 { font-size: 1.5rem; }
-    .tag-t3 { font-size: 1.2rem; }
-    .category-cloud { justify-content: flex-start; gap: 0.8rem; }
-}
+/* -------------------------------------- */
 
 /* Pagination Styling (index.html) */
 .pagination {
@@ -335,16 +340,14 @@ h2 {
 }
 
 /* Footer Styling (All pages) */
-.footer {
+.footer, footer {
     text-align: center; 
     padding: 2rem 0; 
     color: #999; 
     font-size: 0.9rem;
 }
 
-
-
-/* Main Content */
+/* Additional content styles from original CSS (kept for compatibility) */
 .main-content .content {
     font-size: 20px;
     color: black;
@@ -352,11 +355,4 @@ h2 {
 .main-content .content p {
     margin-bottom: 18px;
 }
-
-
-
-
-
-
-
 
