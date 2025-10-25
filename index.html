@@ -3,63 +3,290 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trinitarian Believer</title>
-    <style>body a {color: #003399; font-weight: bold;}</style>
-    <link rel="icon" type="image/x-icon" href="./assets/fav.png">
+    <title>Trinitarian Believer - Home</title>
+    <!-- Note: fav.png link is kept but won't load in this environment -->
+    <link rel="icon" type="image/x-icon" href="./src/fav.png">
+    <!-- Linking to the external CSS file -->
+    <link rel="stylesheet" href="./src/home.css">
 </head>
 <body>
-    <h1>Trinitarian Believer (Archive)</h1>
-    <p>Christian Apologetics by Sahan Yosef.</p>
-    <hr>
-    <table border="1" width="100%" cellspacing="0" cellpadding="10">
-        <tr>
-            <td valign="top" width="25%">
-                <h3>Article Categories</h3>
-                <p>Use these links to filter by research area:</p>
-                <ul>
-                    <li><a href="#">Home (Categories)</a></li>
-                    <li><a href="#">E-Books (Free Downloads)</a></li>
-                    <li><a href="#">Search (Questions)</a></li>
-                    <li><a href="#">Backup (Local)</a></li>
-                    <li><a href="#">Youtube (Subscribe)</a></li>
+
+    <header class="header">
+        <a href="#" class="logo">Trinitarian Believer</a>
+        
+        
+        <input type="checkbox" id="nav-toggle" />
+        <label for="nav-toggle" class="nav-toggle-label">&#9776;</label> 
+
+        <div class="nav-container">
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="category.html">Categories</a></li> 
+                    <li><a href="books.html">Books</a></li>
+                    <li><a href="about.html">About</a></li>
                 </ul>
+            </nav>
+            
+            
+            <form class="search-box" action="https://www.google.com/search" method="get">
+                <input type="hidden" name="sitesearch" value="trinitarianbeliever.github.io">
+                <input type="text" name="q" placeholder="Search site..." required>
+                <button type="submit">Search</button>
+            </form>
+        </div>
+    </header>
 
-                <hr>
+    <main class="main-content">
+        <h2>Recent Works & Articles</h2>
+        
+        <!-- NEW ARTICLE GRID CONTAINER -->
+        <div class="article-grid">
+            
+            <!-- Article 1 -->
+            <div class="article-card">
+                <div class="card-content-wrapper">
+                    <h3 class="card-title">
+                        <a href="./categories/the-eternal-generation-of-the-son/how-isaac-was-the-only-son-of-abraham-ke-i-jf.html">How Isaac was the Only Son of Abraham</a>
+                    </h3>
+                    <p class="card-date">Published on September 16, 2025</p>
+                </div>
+                <a href="./categories/the-eternal-generation-of-the-son/how-isaac-was-the-only-son-of-abraham-ke-i-jf.html" class="read-more-link">Continue reading &rarr;</a>
+            </div>
+            
+            <!-- Article 2 -->
+            <div class="article-card">
+                <div class="card-content-wrapper">
+                    <h3 class="card-title">
+                        <a href="#">The Epistemological Crisis in Post-Modern Thought: A Reappraisal of Foucault</a>
+                    </h3>
+                    <p class="card-date">Published on September 16, 2025</p>
+                </div>
+                <a href="#" class="read-more-link">Continue reading &rarr;</a>
+            </div>
+            
+            <!-- Article 3 -->
+            <div class="article-card">
+                <div class="card-content-wrapper">
+                    <h3 class="card-title">
+                        <a href="#">Quantitative Analysis of Climate Feedback Loops in Oceanic Thermohaline Circulation</a>
+                    </h3>
+                    <p class="card-date">Published on September 16, 2025</p>
+                </div>
+                <a href="#" class="read-more-link">Continue reading &rarr;</a>
+            </div>
+            
+            <!-- Article 4 -->
+            <div class="article-card">
+                <div class="card-content-wrapper">
+                    <h3 class="card-title">
+                        <a href="#">Socio-Economic Determinants of Language Shift in South Asian Diasporic Communities</a>
+                    </h3>
+                    <p class="card-date">Published on September 16, 2025</p>
+                </div>
+                <a href="#" class="read-more-link">Continue reading &rarr;</a>
+            </div>
+            
+            <!-- Article 5 -->
+            <div class="article-card">
+                <div class="card-content-wrapper">
+                    <h3 class="card-title">
+                        <a href="#">Revisiting the Heuristic Value of Classical Mechanics in Quantum Field Theory Education</a>
+                    </h3>
+                    <p class="card-date">Published on September 16, 2025</p>
+                </div>
+                <a href="#" class="read-more-link">Continue reading &rarr;</a>
+            </div>
+            
+            <!-- Article 6 -->
+            <div class="article-card">
+                <div class="card-content-wrapper">
+                    <h3 class="card-title">
+                        <a href="#">A Critical Study of Early Sinhalese Palm-Leaf Manuscript Preservation Techniques</a>
+                    </h3>
+                    <p class="card-date">Published on September 16, 2025</p>
+                </div>
+                <a href="#" class="read-more-link">Continue reading &rarr;</a>
+            </div>
+            
+            <!-- Article 7 -->
+            <div class="article-card">
+                <div class="card-content-wrapper">
+                    <h3 class="card-title">
+                        <a href="#">Hermeneutics and the Role of Interpretation in Biblical Exegesis</a>
+                    </h3>
+                    <p class="card-date">Published on September 16, 2025</p>
+                </div>
+                <a href="#" class="read-more-link">Continue reading &rarr;</a>
+            </div>
+            
+            <!-- Article 8 -->
+            <div class="article-card">
+                <div class="card-content-wrapper">
+                    <h3 class="card-title">
+                        <a href="#">The Historical Development of Trinitarian Theology in the Patristic Era</a>
+                    </h3>
+                    <p class="card-date">Published on September 16, 2025</p>
+                </div>
+                <a href="#" class="read-more-link">Continue reading &rarr;</a>
+            </div>
+            
+            <!-- Article 9 -->
+            <div class="article-card">
+                <div class="card-content-wrapper">
+                    <h3 class="card-title">
+                        <a href="#">Analyzing the Ethical Frameworks of Virtue Theory versus Deontology</a>
+                    </h3>
+                    <p class="card-date">Published on September 16, 2025</p>
+                </div>
+                <a href="#" class="read-more-link">Continue reading &rarr;</a>
+            </div>
+            
+            <!-- Article 10 -->
+            <div class="article-card">
+                <div class="card-content-wrapper">
+                    <h3 class="card-title">
+                        <a href="#">A Computational Model for Predicting Solar Flare Activity</a>
+                    </h3>
+                    <p class="card-date">Published on September 16, 2025</p>
+                </div>
+                <a href="#" class="read-more-link">Continue reading &rarr;</a>
+            </div>
+            
+            <!-- Article 11 -->
+            <div class="article-card">
+                <div class="card-content-wrapper">
+                    <h3 class="card-title">
+                        <a href="#">The Influence of Byzantine Iconography on Western Renaissance Art</a>
+                    </h3>
+                    <p class="card-date">Published on September 16, 2025</p>
+                </div>
+                <a href="#" class="read-more-link">Continue reading &rarr;</a>
+            </div>
+            
+            <!-- Article 12 -->
+            <div class="article-card">
+                <div class="card-content-wrapper">
+                    <h3 class="card-title">
+                        <a href="#">Comparative Study of Ancient Near Eastern Creation Myths</a>
+                    </h3>
+                    <p class="card-date">Published on September 16, 2025</p>
+                </div>
+                <a href="#" class="read-more-link">Continue reading &rarr;</a>
+            </div>
+            
+            <!-- Article 13 -->
+            <div class="article-card">
+                <div class="card-content-wrapper">
+                    <h3 class="card-title">
+                        <a href="#">The Impact of Digitalization on Library Archives in South Asia</a>
+                    </h3>
+                    <p class="card-date">Published on September 16, 2025</p>
+                </div>
+                <a href="#" class="read-more-link">Continue reading &rarr;</a>
+            </div>
+            
+            <!-- Article 14 -->
+            <div class="article-card">
+                <div class="card-content-wrapper">
+                    <h3 class="card-title">
+                        <a href="#">Quantum Entanglement and its Philosophical Implications for Reality</a>
+                    </h3>
+                    <p class="card-date">Published on September 16, 2025</p>
+                </div>
+                <a href="#" class="read-more-link">Continue reading &rarr;</a>
+            </div>
+            
+            <!-- Article 15 -->
+            <div class="article-card">
+                <div class="card-content-wrapper">
+                    <h3 class="card-title">
+                        <a href="#">An Examination of Monastic Vows and Early Medieval Land Tenure</a>
+                    </h3>
+                    <p class="card-date">Published on September 16, 2025</p>
+                </div>
+                <a href="#" class="read-more-link">Continue reading &rarr;</a>
+            </div>
+            
+            <!-- Article 16 -->
+            <div class="article-card">
+                <div class="card-content-wrapper">
+                    <h3 class="card-title">
+                        <a href="#">Linguistic Analysis of the Koine Greek Verb Tense System</a>
+                    </h3>
+                    <p class="card-date">Published on September 16, 2025</p>
+                </div>
+                <a href="#" class="read-more-link">Continue reading &rarr;</a>
+            </div>
+            
+            <!-- Article 17 -->
+            <div class="article-card">
+                <div class="card-content-wrapper">
+                    <h3 class="card-title">
+                        <a href="#">Geopolitical Dynamics in the Indian Ocean Rim: A $21\text{st}$ Century Perspective</a>
+                    </h3>
+                    <p class="card-date">Published on September 16, 2025</p>
+                </div>
+                <a href="#" class="read-more-link">Continue reading &rarr;</a>
+            </div>
+            
+            <!-- Article 18 -->
+            <div class="article-card">
+                <div class="card-content-wrapper">
+                    <h3 class="card-title">
+                        <a href="#">The Role of Liturgical Music in Shaping Communal Identity</a>
+                    </h3>
+                    <p class="card-date">Published on September 16, 2025</p>
+                </div>
+                <a href="#" class="read-more-link">Continue reading &rarr;</a>
+            </div>
+            
+            <!-- Article 19 -->
+            <div class="article-card">
+                <div class="card-content-wrapper">
+                    <h3 class="card-title">
+                        <a href="#">Statistical Modeling of Consumer Behavior in Emerging Markets</a>
+                    </h3>
+                    <p class="card-date">Published on September 16, 2025</p>
+                </div>
+                <a href="#" class="read-more-link">Continue reading &rarr;</a>
+            </div>
+            
+            <!-- Article 20 -->
+            <div class="article-card">
+                <div class="card-content-wrapper">
+                    <h3 class="card-title">
+                        <a href="#">Plato's Theory of Forms and its Reception in Neo-Platonism</a>
+                    </h3>
+                    <p class="card-date">Published on September 16, 2025</p>
+                </div>
+                <a href="#" class="read-more-link">Continue reading &rarr;</a>
+            </div>
+            
+            <!-- Article 21 (Placeholder to make 21 total if needed, ensuring grid fills) -->
+            <div class="article-card">
+                <div class="card-content-wrapper">
+                    <h3 class="card-title">
+                        <a href="#">The Synthesis of Polymer Nanocomposites for Biomedical Applications</a>
+                    </h3>
+                    <p class="card-date">Published on September 16, 2025</p>
+                </div>
+                <a href="#" class="read-more-link">Continue reading &rarr;</a>
+            </div>
 
-                <h3>About</h3>
-                <p>
-                    If you have any questions related <br>to Trinity, Scripture reliability, or Resurrection, feel free<br> to
-                    <a href="#">Email me.</a>
-                </p>
-            </td>
+        </div>
+        <!-- END NEW ARTICLE GRID CONTAINER -->
+    </main>
 
-
-            <!-- Right Panel (Main Content - 75% width) -->
-            <td valign="top" width="75%">
-                <h2>Home Page - Articles</h2>
-                <hr>
-                
-                <h3>2025</h3>
-                <ul>
-                    <li><a href="./2025/how-isaac-was-the-only-son-of-abraham-ke-i-jf.html">
-                    How Isaac was the Only Son of Abraham</a></li>
-                </ul>
-
-
-
-
-
-                <hr>
-                <p><a href="#top">Back to Top</a></p>
-            </td>
-        </tr>
-    </table>
-
-    <!-- Footer Section -->
-    <hr>
-    <div align="center">
-        <p>Copyright &copy; 2025 Trinitarian Believer (Archive) | <a href="#top">Home</a></p>
+    <div class="pagination">
+        <a href="#" class="nav-button prev-button">&larr; Previous</a>
+        <span class="page-indicator">PAGE 1</span>
+        <a href="#" class="nav-button next-button">Next &rarr;</a>
     </div>
+
+    <footer>
+        &copy; 2025 Trinitarian Believer. All rights reserved.
+    </footer>
 
 </body>
 </html>
