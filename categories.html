@@ -3,28 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trinitarian Believer | Home</title>
-    <meta name="description" content="Trinitarian Believer Home Page">
-    <meta name="keywords" content="Trinitarian, theology, Christianity, articles, archives, faith, Jesus, God, Trinitarian Believer">
+    <title>Trinitarian Believer | Categories</title>
+    <meta name="description" content="Categories.">
+    <meta name="keywords" content="Trinitarian, theology, Christianity, articles, archives, faith, Jesus, God">
     <link rel="canonical" href="https://trinitarianbeliever.github.io/">
     <link rel="stylesheet" href="./style/styles.css">
     <link rel="icon" type="image/x-icon" href="./img/favicon.jpg">
 </head>
 <body>
+    <!-- STEP 1: Header Section -->
     <header class="header">
+        <!-- New wrapper to center content and apply max-width -->
         <div class="header-content">
-            <a href="#" class="logo">
+            <!-- H1 for site identity (SEO) -->
+            <a href="./index.html" class="logo">
                 <h1>Trinitarian Believer</h1>
             </a>
             
+            <!-- 
+            PURE CSS NAV TOGGLE Elements: 
+            1. Hidden Checkbox: Holds the state (checked/open). The .sr-only class hides it visually.
+            2. Label: The visible hamburger icon that toggles the checkbox state.
+            3. Navigation: The element whose visibility is controlled by the checkbox's :checked state in CSS.
+            -->
             <input type="checkbox" id="menu-toggle-checkbox" class="sr-only">
             
             <label for="menu-toggle-checkbox" class="menu-toggle" aria-label="Toggle navigation">&#9776;</label>
             
             <nav class="main-nav" id="mainNav">
                 <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="./categories.html">Categories</a></li>
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="#">Categories</a></li>
                     <li><a href="./books.html">Books</a></li>
                     <li><a href="./about.html">About</a></li>
                     <li><a href="./search.html">Search</a></li>
@@ -33,20 +42,25 @@
         </div>
     </header>
 
+    <!-- STEP 2: Main Content - Article Cards -->
     <main class="articles-container">
         
-        <h2 class="section-heading">Latest Articles</h2>
+        <!-- H2 for section title: Great for SEO! -->
+        <h2 class="section-heading">Categories</h2>
 
         <section class="article-grid">
             <!-- Article Cards (12 total) -->
             
             <!-- Row 1 (4 articles) -->
             <article class="article-card">
-                <h3 class="card-title">How Isaac was the Only Son of Abraham</h3>
-                <p class="card-date">Published on September 16, 2025</p>
-                <a href="./thearchive/eternelbegetting/how-isaac-was-the-only-son-of-abraham-ke-i-jf.html" class="read-more">Continue Reading →</a>
+                <a href="./thearchive/eternelbegetting/handle.html" class="category">The Eternal Generation of the Son</a>
             </article>
-
+            <article class="article-card">
+                <a href="#" class="category">Comman Objections</a>
+            </article>
+            <article class="article-card">
+                <a href="#" class="category">Objections to The Trinity</a>
+            </article>
 
         </section>
 
@@ -57,27 +71,6 @@
             <a href="#" class="page-button" aria-label="Next Page">Next →</a>
         </div>
     </main>
-
-    <!-- STEP 3: Footer Section -->
-    <footer class="footer">
-        <!-- New wrapper to center content and apply max-width -->
-        <div class="footer-content">
-            <!-- Social/External Links Row -->
-            <div class="footer-links">
-                <a href="https://www.youtube.com/@TrinitarianBeliever" target="_blank" title="YouTube Channel">YouTube</a>
-                <a href="#" target="_blank" title="Rumble Channel">Rumble</a>
-                <a href="#" title="Our Official Website">Website</a>
-            </div>
-
-            <!-- Horizontal Line (Half Width, Centered) -->
-            <div class="divider"></div>
-
-            <!-- Copyright Row -->
-            <p class="copyright">
-                © 2025 Trinitarian Believer. All rights reserved.
-            </p>
-        </div>
-    </footer>
 </body>
 </html>
 

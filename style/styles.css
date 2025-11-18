@@ -1,0 +1,450 @@
+/* 1. Global Styles and Font Theme */
+
+:root {
+    --primary-color: #5273a4; /* Hover color */
+    --text-color: #000;
+    --background-color: #fff;
+    --body-background: #f8f8f8; /* Light gray for content background */
+    --border-color: #ddd;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    line-height: 1.6;
+    color: #000;
+    background-color: #fff;
+}
+
+a {
+    text-decoration: none;
+    color: var(--text-color);
+    transition: color 0.2s ease-in-out;
+}
+
+a:hover {
+    color: var(--primary-color);
+}
+
+/* Utility Class for visually hiding elements while keeping them accessible (for the checkbox) */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* STEP 1: Header Styling */
+/* .header provides the full-width white background */
+.header {
+    background-color: var(--background-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* Header content wrapper for alignment (max-width and centering) */
+.header-content {
+    max-width: 1200px; 
+    margin: 0 auto;
+    padding: 1rem 1.5rem; /* Tighter internal padding */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative; /* Needed for absolute positioning of mobile menu */
+}
+
+/* Styling applied to H1 element */
+.logo h1 {
+    font-size: 34px;
+    font-weight: normal;
+    /* Reset H1 default margin for integration into the flex header */
+    margin: 0; 
+    line-height: 1; /* Ensure vertical centering is clean */
+}
+
+/* The <a> tag around the H1 is the .logo */
+.logo {
+     /* Inherit font color from the <h1> wrapper's anchor tag */
+     color: var(--text-color); 
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.main-nav a {
+    padding: 0.5rem;
+    display: block;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    font-style: italic;
+}
+
+/* Hamburger Icon (which is now a <label>) */
+.menu-toggle {
+    display: none;
+    font-size: 1.75rem; /* Slightly larger icon */
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: var(--text-color);
+    padding: 0;
+    line-height: 1;
+    transition: color 0.2s;
+    /* Reset default button/label styles */
+    box-sizing: content-box; 
+    height: 1em; /* Ensure clicking is easy */
+    width: 1em; 
+}
+
+.menu-toggle:hover {
+    color: var(--primary-color);
+}
+
+/* STEP 2: Article Cards Styling */
+.articles-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1.5rem; /* Tighter internal padding */
+}
+
+/* New styling for the main content section title (H2) */
+.section-heading {
+    font-size: 24px;
+    font-weight: normal;
+    text-align: left;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-color);
+}
+
+.article-grid {
+    display: grid;
+    /* Default: 4 articles per row (desktop) */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.article-card {
+    background-color: var(--background-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Card titles are now H3 for correct hierarchy */
+.card-title {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+    font-weight: normal;
+}
+
+
+.card-date {
+    font-size: 0.85rem;
+    color: #777;
+    margin-bottom: 1rem;
+}
+
+.read-more {
+    margin-top: auto; /* Push the link to the bottom */
+    display: inline-block;
+    color: #555;
+    font-weight: normal;
+    border-bottom: 2px solid transparent;
+}
+
+.read-more:hover {
+    color: var(--text-color);
+}
+
+/* Pagination Styling */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 1.5rem;
+    gap: 1rem;
+}
+
+/* The styles below now apply to <a> tags */
+.page-button {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+    font-family: inherit;
+    /* Ensure the <a> looks like a button */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.page-button:hover {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    border-color: var(--primary-color);
+}
+
+.page-info {
+    font-weight: bold;
+}
+
+/* STEP 3: Footer Styling */
+.footer {
+    background-color: var(--background-color);
+    border-top: 1px solid var(--border-color);
+    text-align: center;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem; /* Tighter internal padding */
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.footer-links a {
+    font-weight: 600;
+}
+
+.divider {
+    height: 1px;
+    background-color: var(--border-color);
+    margin: 1.5rem auto;
+    /* Half of the width and centered */
+    width: 50%;
+}
+
+.copyright {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+/* Responsive Design */
+
+/* Desktop (Show Nav, Hide Toggle) */
+@media (min-width: 769px) {
+    .main-nav {
+        display: block !important; /* Ensure visibility on desktop */
+    }
+    .menu-toggle {
+        display: none;
+    }
+}
+
+@media (max-width: 900px) {
+    /* Adjust card layout for tablets/smaller desktops */
+    .article-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* max 2-3 per row */
+    }
+}
+
+/* Mobile (Hide Nav, Show Toggle) */
+@media (max-width: 768px) {
+    /* Show the toggle button */
+    .menu-toggle {
+        display: block;
+    }
+
+    /* Hide the main navigation by default (collapsed state) */
+    .main-nav {
+        display: none;
+        position: absolute;
+        top: 100%; /* Position right below the header bar */
+        left: 0;
+        width: 100%;
+        background-color: var(--background-color);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border-top: 1px solid var(--border-color);
+        z-index: 999; /* Ensure menu is on top of content */
+    }
+    
+    /* PURE CSS HACK: When the hidden checkbox is checked, show the navigation (.main-nav) */
+    #menu-toggle-checkbox:checked ~ .main-nav {
+        display: block;
+    }
+
+    .main-nav ul {
+        flex-direction: column;
+        padding: 0; /* Remove default padding */
+        width: 100%;
+        /* Reset mobile stacking properties */
+        gap: 0;
+    }
+
+    .main-nav a {
+        padding: 0.75rem 1.5rem; /* Add vertical padding for touch target, match horizontal padding */
+        text-align: left;
+    }
+
+    .main-nav li {
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .main-nav li:last-child {
+        border-bottom: none;
+    }
+
+    .divider {
+        width: 75%; /* Make the divider slightly wider on small screens */
+    }
+}
+
+
+
+
+
+
+
+/* Archive */
+.articles-container .article-grid .article-card .year {
+    margin-top: auto;
+    display: inline-block;
+    color: #555;
+    font-weight: bold;
+    border-bottom: 2px solid transparent;
+    text-align: center;
+    font-size: 20px;
+}
+
+.articles-container .article-grid .article-card .year:hover {
+    color: #5273a4
+}
+
+
+/* Category */
+.articles-container .article-grid .article-card .category {
+    margin-top: auto;
+    display: inline-block;
+    color: #555;
+    font-weight: bold;
+    border-bottom: 2px solid transparent;
+    text-align: left;
+    font-size: 20px;
+}
+
+.articles-container .article-grid .article-card .category:hover {
+    color: #5273a4;
+}
+
+/* About */
+.articles-container .article-grid .about {
+    font-size: 20px;
+    font-style: italic;
+    color: #555
+}
+
+/* Books */
+/* Enforcing consistent size for the book cover image */
+.book-cover {
+    width: 100%; /* Default to full width of the card padding area */
+    max-width: 120px; /* Consistent width for a slim book look */
+    height: 186px; /* Adjusted for common 5.5"x8.5" trade paperback ratio (~1:1.55) */
+    /* Use 'cover' to ensure the image fills the entire space, cropping if necessary */
+    object-fit: cover; 
+    display: block;
+    margin: 0 auto 1rem auto; /* Center image and add spacing below */
+    border-radius: 4px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* New style for the book author in the new book cards */
+.book-author {
+    font-size: 0.85rem;
+    color: #777;
+    margin-bottom: 0.75rem; 
+}
+
+/* New style for the Download PDF link */
+.download-pdf {
+    display: block;
+    /* Adjusted margin-top: 0.5rem is sufficient spacing */
+    margin-top: auto; /* Push it to the bottom of the card */
+    padding: 0.5rem 0.5rem;
+    text-align: center;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    border-radius: 4px;
+    font-weight: 600;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.download-pdf:hover {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+}
+
+/*content writing*/
+.writing-container blockquote {
+    border-left: 5px solid #5273a4;
+    padding: 1rem 1.5rem;
+    margin: 1.3rem 0;
+    background-color: #f0f4f9;
+    font-style: italic;
+    font-size: 1.1rem;
+    font-size: 20px;
+}
+.writing-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+    background-color: white;
+}
+
+.writing-container .section-heading {
+    font-size: 24px;
+    font-weight: normal;
+    text-align: left;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #000;
+}
+
+.writing-container .article-meta {
+    font-size: 18px;
+    margin-bottom: 1rem;
+    color: #555;
+    font-style: italic;
+}
+.writing-container .post-writing {
+    font-size: 20px;
+}
+.writing-container .post-writing p {
+    margin-bottom: 10px;
+}
+
+
+
+
+
+
+

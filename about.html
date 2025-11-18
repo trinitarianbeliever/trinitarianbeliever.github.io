@@ -3,47 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trinitarian Believer - About</title>
-    <link rel="stylesheet" href="./src/style.css">
-    <link rel="icon" type="image/x-icon" href="./src/fav.png">
+    <title>Trinitarian Believer | About</title>
+    <meta name="description" content="About page">
+    <meta name="keywords" content="Trinitarian, theology, Christianity, articles, archives, faith, Jesus, God">
+    <link rel="canonical" href="https://trinitarianbeliever.github.io/">
+    <link rel="stylesheet" href="./style/styles.css">
+    <link rel="icon" type="image/x-icon" href="./img/favicon.jpg">
 </head>
 <body>
-
+    <!-- STEP 1: Header Section -->
     <header class="header">
-        <a href="index.html" class="logo">Trinitarian Believer</a> 
-        <input type="checkbox" id="nav-toggle" />
-        <label for="nav-toggle" class="nav-toggle-label">&#9776;</label> 
-        <div class="nav-container">
-            <nav>
-                <ul class="nav-menu">
-                    <li><a href="index.html">Home</a></li> 
-                    <li><a href="category.html">Categories</a></li>
-                    <li><a href="books.html">Books</a></li>
-                    <li><a href="about.html">About</a></li>
+        <div class="header-content">
+            <a href="./index.html" class="logo">
+                <h1>Trinitarian Believer</h1>
+            </a>
+            <input type="checkbox" id="menu-toggle-checkbox" class="sr-only">
+            
+            <label for="menu-toggle-checkbox" class="menu-toggle" aria-label="Toggle navigation">&#9776;</label>
+            
+            <nav class="main-nav" id="mainNav">
+                <ul>
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="./categories.html">Categories</a></li>
+                    <li><a href="./books.html">Books</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="./search.html">Search</a></li>
                 </ul>
             </nav>
-            <form class="search-box" action="https://www.google.com/search" method="get">
-                <input type="hidden" name="sitesearch" value="trinitarianbeliever.github.io">
-                <input type="text" name="q" placeholder="Search site..." required>
-                <button type="submit">Search</button>
-            </form>
         </div>
     </header>
-         <img src="./src/crusifixion.webp" style="  width: 100%; max-width: 550px; max-height: 300px; height: auto;" alt="img of jesus">
 
-    <main class="main-content">
-        <p style="font-size: 19px;">
-But he was pierced for our transgressions,<br>
-he was crushed for our iniquities;
-the punishment that brought us peace <br>was on him, 
-and by his wounds we are healed.
+    <!-- STEP 2: Main Content - Article Cards -->
+    <main class="articles-container">
+        
+        <!-- H2 for section title: Great for SEO! -->
+        <h2 class="section-heading">About</h2>
 
-<i>- Prophet Isaiah 700 BCE</i>
-
-        </p>
+        <section class="article-grid">
+            <p class="about">1 Peter 3:15</p>
+        </section>
     </main>
-
-
-
 </body>
 </html>
+

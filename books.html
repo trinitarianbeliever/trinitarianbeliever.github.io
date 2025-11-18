@@ -3,66 +3,117 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trinitarian Believer - Books</title>
-    <link rel="stylesheet" href="./src/style.css">
-    <link rel="icon" type="image/x-icon" href="./src/fav.png">
+    <title>Trinitarian Believer | Books</title>
+    <meta name="description" content="Books">
+    <meta name="keywords" content="Trinitarian, theology, Christianity, articles, archives, faith, Jesus, God">
+    <link rel="canonical" href="https://trinitarianbeliever.github.io/">
+    <link rel="stylesheet" href="./style/styles.css">
+    <link rel="icon" type="image/x-icon" href="./img/favicon.jpg">
 </head>
 <body>
-
+    <!-- STEP 1: Header Section -->
     <header class="header">
-        <a href="index.html" class="logo">Trinitarian Believer</a> 
-        
-        <input type="checkbox" id="nav-toggle" />
-        <label for="nav-toggle" class="nav-toggle-label">&#9776;</label> 
-
-        <div class="nav-container">
-            <nav>
-                <ul class="nav-menu">
-                    <li><a href="index.html">Home</a></li> 
-                    <li><a href="category.html">Categories</a></li>
-                    <li><a href="books.html">Books</a></li>
-                    <li><a href="about.html">About</a></li>
+        <!-- New wrapper to center content and apply max-width -->
+        <div class="header-content">
+            <!-- H1 for site identity (SEO) -->
+            <a href="./index.html" class="logo">
+                <h1>Trinitarian Believer</h1>
+            </a>
+            
+            <input type="checkbox" id="menu-toggle-checkbox" class="sr-only">
+            
+            <label for="menu-toggle-checkbox" class="menu-toggle" aria-label="Toggle navigation">&#9776;</label>
+            
+            <nav class="main-nav" id="mainNav">
+                <ul>
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="./categories.html">Categories</a></li>
+                    <li><a href="#">Books</a></li>
+                    <li><a href="./about.html">About</a></li>
+                    <li><a href="./search.html">Search</a></li>
                 </ul>
             </nav>
-            
-            <form class="search-box" action="https://www.google.com/search" method="get">
-                <input type="hidden" name="sitesearch" value="trinitarianbeliever.github.io">
-                <input type="text" name="q" placeholder="Search site..." required>
-                <button type="submit">Search</button>
-            </form>
         </div>
     </header>
 
-    <main class="main-content">
-        <h2>Free E-Books</h2>
+    <!-- STEP 2: Main Content - Article Cards -->
+    <main class="articles-container">
         
-        <div class="category-cloud">
-            <a href="#" class="tag-t3">Theology</a>
-            <a href="#" class="tag-t3">Philosophy</a>
-            <a href="#" class="tag-t3">History</a>
+        <!-- H2 for section title: Great for SEO! -->
+        <h2 class="section-heading">Books</h2>
+
+        <section class="article-grid">
+            <!-- Book Cards (5 total to ensure at least five in a row) -->
             
-            <a href="#" class="tag-t3">Physics</a>
-            <a href="#" class="tag-t3">Linguistics</a>
-            <a href="#" class="tag-t3">Comparative Religion</a>
-            <a href="#" class="tag-t3">Art History</a>
+            <!-- Book 1: On the Incarnation -->
+            <article class="article-card book-card">
+                <!-- Consistent Size Book Cover -->
+                <img src="https://placehold.co/120x186/5273a4/ffffff?text=Book+Cover" onerror="this.onerror=null;this.src='https://placehold.co/120x186/5273a4/ffffff?text=Book+Cover';" alt="Cover of On the Incarnation" class="book-cover">
+                
+                <h3 class="card-title">On the Incarnation</h3>
+                <p class="book-author">By Athanasius</p>
+                
+                <!-- Download PDF Link -->
+                <a href="/downloads/athanasius_incarnation.pdf" class="download-pdf">Download PDF</a>
+            </article>
 
-            <a href="#" class="tag-t3">Astrophysics</a>
-            <a href="#" class="tag-t3">Environmental Science</a>
-            <a href="#" class="tag-t3">Information Science</a>
-            <a href="#" class="tag-t3">International Relations</a>
-            <a href="#" class="tag-t3">Economics</a>
-            <a href="#" class="tag-t3">Musicology</a>
-            <a href="#" class="tag-t3">Sociology</a>
+            <!-- Book 2: The City of God -->
+            <article class="article-card book-card">
+                <!-- Consistent Size Book Cover -->
+                <img src="https://placehold.co/120x186/5273a4/ffffff?text=Book+Cover" onerror="this.onerror=null;this.src='https://placehold.co/120x186/5273a4/ffffff?text=Book+Cover';" alt="Cover of The City of God" class="book-cover">
+                
+                <h3 class="card-title">The City of God</h3>
+                <p class="book-author">By Augustine of Hippo</p>
+                
+                <!-- Download PDF Link -->
+                <a href="/downloads/augustine_city_of_god.pdf" class="download-pdf">Download PDF</a>
+            </article>
 
-            <a href="#" class="tag-t3">Chemistry & Engineering</a>
-            <a href="#" class="tag-t3">Biblical Exegesis</a>
-            <a href="#" class="tag-t3">Ancient Studies</a>
-            <a href="#" class="tag-t3">Ethics</a>
+            <!-- Book 3: Institutes of the Christian Religion -->
+            <article class="article-card book-card">
+                <!-- Consistent Size Book Cover -->
+                <img src="https://placehold.co/120x186/5273a4/ffffff?text=Book+Cover" onerror="this.onerror=null;this.src='https://placehold.co/120x186/5273a4/ffffff?text=Book+Cover';" alt="Cover of Institutes of the Christian Religion" class="book-cover">
+                
+                <h3 class="card-title">Institutes of the Christian Religion</h3>
+                <p class="book-author">By John Calvin</p>
+                
+                <!-- Download PDF Link -->
+                <a href="/downloads/calvin_institutes.pdf" class="download-pdf">Download PDF</a>
+            </article>
+
+            <!-- Book 4: Systematic Theology -->
+            <article class="article-card book-card">
+                <!-- Consistent Size Book Cover -->
+                <img src="https://placehold.co/120x186/5273a4/ffffff?text=Book+Cover" onerror="this.onerror=null;this.src='https://placehold.co/120x186/5273a4/ffffff?text=Book+Cover';" alt="Cover of Systematic Theology" class="book-cover">
+                
+                <h3 class="card-title">Systematic Theology</h3>
+                <p class="book-author">By Charles Hodge</p>
+                
+                <!-- Download PDF Link -->
+                <a href="/downloads/hodge_systematic_theology.pdf" class="download-pdf">Download PDF</a>
+            </article>
+            
+            <!-- Book 5: The Bondage of the Will (NEWLY ADDED) -->
+            <article class="article-card book-card">
+                <!-- Consistent Size Book Cover -->
+                <img src="https://placehold.co/120x186/5273a4/ffffff?text=Book+Cover" onerror="this.onerror=null;this.src='https://placehold.co/120x186/5273a4/ffffff?text=Book+Cover';" alt="Cover of The Bondage of the Will" class="book-cover">
+                
+                <h3 class="card-title">The Bondage of the Will</h3>
+                <p class="book-author">By Martin Luther</p>
+                
+                <!-- Download PDF Link -->
+                <a href="/downloads/luther_bondage_of_will.pdf" class="download-pdf">Download PDF</a>
+            </article>
+        </section>
+        <!-- End of Featured Books Section -->
+
+        <!-- Pagination Controls -->
+        <div class="pagination">
+            <a href="#" class="page-button" aria-label="Previous Page">← Previous</a>
+            <span class="page-info">PAGE 1</span>
+            <a href="#" class="page-button" aria-label="Next Page">Next →</a>
         </div>
-        
-        <p style="text-align: center; margin-top: 3rem; color: #666;">
-            Select any E-Book to download.
-        </p>
     </main>
 </body>
 </html>
+

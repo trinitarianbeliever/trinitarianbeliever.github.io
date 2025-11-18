@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trinitarian Believer | Search</title>
+    <meta name="description" content="Search articles and resources on Trinitarian Believer.">
+    <meta name="keywords" content="search, Trinitarian, theology, Christianity, articles, archives, faith, Jesus, God">
+    <link rel="icon" type="image/x-icon" href="./img/favicon.jpg">
+    <style>
+        /* 1. Global Styles and Font Theme */
+
+        :root {
+            --primary-color: #5273a4; /* Hover color */
+            --text-color: #000;
+            --background-color: #fff;
+            --body-background: #f8f8f8; /* Light gray for content background */
+            --border-color: #ddd;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            line-height: 1.6;
+            color: #000;
+            background-color: var(--body-background);
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--text-color);
+            transition: color 0.2s ease-in-out;
+        }
+
+        a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Utility Class for visually hiding elements while keeping them accessible (for the checkbox) */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+
+        /* STEP 1: Header Styling */
+        .header {
+            background-color: var(--background-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .header-content {
+            max-width: 1200px; 
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        .logo h1 {
+            font-size: 34px;
+            font-weight: normal;
+            margin: 0; 
+            line-height: 1;
+        }
+
+        .logo {
+            color: var(--text-color); 
+        }
+
+        /* Desktop Navigation Styling: Pushes nav to the far right */
+        .main-nav {
+            margin-left: auto; /* Pushes the navigation block to the far right */
+        }
+        
+        .main-nav ul {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem; /* Increased gap slightly for better link separation */
+        }
+
+        .main-nav a {
+            padding: 0.5rem;
+            display: block;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            font-style: italic;
+        }
+
+        /* Hamburger Icon */
+        .menu-toggle {
+            display: none;
+            font-size: 1.75rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: var(--text-color);
+            padding: 0;
+            line-height: 1;
+            transition: color 0.2s;
+            box-sizing: content-box; 
+            height: 1em;
+            width: 1em; 
+        }
+
+        .menu-toggle:hover {
+            color: var(--primary-color);
+        }
+
+        /* STEP 2: Main Content Container Styling (Single Column Layout) */
+        .page-container {
+            max-width: 900px; /* Max width applied to the entire main content area */
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+            padding-bottom: 4rem;
+        }
+        
+        /* --- Search Form Container --- */
+        .search-container {
+            margin-bottom: 2rem; /* Spacing between search box and results */
+        }
+        
+        /* Search Form Layout */
+        .search-form-body {
+            display: flex;
+            width: 100%;
+        }
+        
+        .search-input-body {
+            flex-grow: 1;
+            padding: 0.75rem 1rem;
+            font-size: 1.1rem;
+            border: 2px solid var(--border-color);
+            border-radius: 8px 0 0 8px; /* Left side rounded */
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .search-input-body:focus {
+            border-color: var(--primary-color);
+        }
+
+        .search-button-body {
+            padding: 0.75rem 1.5rem;
+            font-size: 1.1rem;
+            background-color: var(--primary-color);
+            color: var(--background-color);
+            border: none;
+            border-radius: 0 8px 8px 0; /* Right side rounded */
+            cursor: pointer;
+            transition: background-color 0.2s;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        .search-button-body:hover {
+            background-color: #3b5a83;
+        }
+
+        /* Search Results Area */
+        .search-results {
+            /* Now simply a container for results */
+        }
+
+        .result-item {
+            background-color: var(--background-color);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            transition: box-shadow 0.2s;
+        }
+
+        .result-item:hover {
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .result-title {
+            font-size: 1.4rem;
+            font-weight: normal;
+            margin-bottom: 0; 
+        }
+
+        .result-title a {
+            color: var(--primary-color);
+            display: block;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .result-title a:hover {
+            color: #3b5a83;
+            text-decoration: underline;
+        }
+        
+        /* Placeholder for no results */
+        .no-results {
+            text-align: center;
+            padding: 3rem 0;
+            color: #777;
+            font-style: italic;
+            font-size: 1.1rem;
+            background-color: var(--background-color);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+        }
+        
+        /* Responsive Design */
+
+        /* Desktop (Show Nav, Hide Toggle) - No change here */
+        @media (min-width: 769px) {
+            .main-nav {
+                display: block !important;
+            }
+            .menu-toggle {
+                display: none;
+            }
+            
+            .main-nav ul {
+                display: flex;
+                margin: 0;
+                padding: 0;
+            }
+        }
+
+        /* Mobile (Stacked Layout) - Simplified styles, removing order/flex-direction */
+        @media (max-width: 768px) {
+            .header-content {
+                justify-content: space-between;
+                flex-wrap: nowrap; 
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+            
+            .main-nav {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--background-color);
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                border-top: 1px solid var(--border-color);
+                z-index: 999;
+                margin-left: 0; /* Reset desktop margin */
+            }
+            
+            #menu-toggle-checkbox:checked ~ .main-nav {
+                display: block;
+            }
+
+            .main-nav ul {
+                flex-direction: column;
+                padding: 0;
+                width: 100%;
+                gap: 0;
+            }
+            
+            /* Mobile styles for link items */
+            .main-nav a { 
+                padding: 0.75rem 1.5rem; 
+                text-align: left;
+            }
+
+            .main-nav li {
+                border-bottom: 1px solid var(--border-color);
+            }
+
+            .main-nav li:last-child {
+                border-bottom: none;
+            }
+            
+            /* Smaller input font for mobile */
+            .search-input-body {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <a href="index.html" class="logo">
+                <h1>Trinitarian Believer</h1>
+            </a>
+            
+            <!-- Mobile Menu Toggle -->
+            <input type="checkbox" id="menu-toggle-checkbox" class="sr-only">
+            
+            <label for="menu-toggle-checkbox" class="menu-toggle" aria-label="Toggle navigation">&#9776;</label>
+            
+            <nav class="main-nav" id="mainNav">
+                <ul>
+                    <!-- NAVIGATION LINKS -->
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="./categories.html">Categories</a></li>
+                    <li><a href="./books.html">Books</a></li>
+                    <li><a href="./about.html">About</a></li>
+                    <li><a href="./search.html">Search</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="page-container">
+        
+        <!-- Search Input Section (Now always FIRST) -->
+        <section class="search-container">
+            
+            <form class="search-form-body" onsubmit="event.preventDefault(); handleSearch();">
+                <input 
+                    type="search" 
+                    id="searchInput" 
+                    class="search-input-body" 
+                    placeholder="Search keywords..." 
+                    aria-label="Search keywords"
+                    required
+                >
+                <button type="submit" class="search-button-body">Search</button>
+            </form>
+        </section>
+        
+        <!-- Search Results Section (Now always SECOND) -->
+        <section class="search-results" id="searchResults">
+            <!-- Results will be dynamically inserted here. -->
+            <div class="no-results"><p>Loading search index...</p></div>
+        </section>
+        
+    </main>
+    
+    <script>
+        // Placeholder for articles (will be populated by fetch)
+        let articles = [];
+
+        // DOM Elements
+        const searchInput = document.getElementById('searchInput');
+        const searchResultsContainer = document.getElementById('searchResults');
+        const menuCheckbox = document.getElementById('menu-toggle-checkbox');
+
+        // Common, unhelpful words to ignore in search queries
+        const STOP_WORDS = [
+            'the', 'a', 'an', 'is', 'of', 'in', 'and', 'or', 'for', 'to', 'with',
+            'how', 'what', 'why', 'who', 'where', 'when', 'which', 'was', 'are', 'by',
+            'my', 'your', 'his', 'her', 'its', 'our', 'their', 'at', 'on', 'up', 'down',
+            'from', 'about', 'just', 'that', 'this', 'it', 'me', 'you', 'he', 'she',
+            'we', 'they', 'i', 's', 'can', 'will', 'do', 'be', 'as'
+        ];
+        
+        // --- DATA LOADING & INITIALIZATION ---
+
+        /**
+         * Loads article data from a JSON file.
+         */
+        async function loadArticles() {
+            // NOTE: The JSON file is expected at "./searchdata/data.json"
+            // The format should be an array of objects like:
+            // [{"title": "Article Title", "url": "./path/to/article.html"}, ...]
+            try {
+                const response = await fetch('./searchdata/data.json');
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                articles = await response.json();
+                console.log('Articles loaded successfully:', articles.length);
+                searchResultsContainer.innerHTML = '<div class="no-results"><p>Search index loaded. Enter keywords above.</p></div>';
+            } catch (error) {
+                console.error('Failed to load search data:', error);
+                searchResultsContainer.innerHTML = '<div class="no-results"><p>Error: Could not load article index. Please ensure the file "./searchdata/data.json" exists and is properly formatted.</p></div>';
+            }
+        }
+
+        /**
+         * Initializes the page by loading data and checking for URL query.
+         */
+        async function initializePage() {
+            // 1. Load articles data
+            await loadArticles();
+
+            // 2. Check URL for existing query (e.g., search.html?q=begetting)
+            const urlParams = new URLSearchParams(window.location.search);
+            const initialQuery = urlParams.get('q');
+            
+            if (initialQuery) {
+                // Set the input field value
+                searchInput.value = initialQuery;
+                // Run the search logic
+                executeSearch(initialQuery); 
+            }
+        }
+
+        // --- SEARCH LOGIC ---
+
+        /**
+         * Simple XSS sanitizer to escape HTML special characters.
+         * @param {string} str The string to sanitize.
+         * @returns {string} The sanitized string.
+         */
+        function sanitize(str) {
+            if (!str || typeof str !== 'string') return '';
+            // Escape HTML special characters for safe output in innerHTML
+            return str.replace(/&/g, '&amp;')
+                      .replace(/</g, '&lt;')
+                      .replace(/>/g, '&gt;')
+                      .replace(/"/g, '&quot;')
+                      .replace(/'/g, '&#39;');
+        }
+
+        /**
+         * Executes the core search logic based on a query string.
+         * @param {string} query The raw search query string.
+         */
+        function executeSearch(rawQuery) {
+            rawQuery = rawQuery.trim().toLowerCase();
+            searchResultsContainer.innerHTML = ''; // Clear previous results
+
+            // Sanitize the query specifically for safe output to the HTML DOM
+            const safeQueryDisplay = sanitize(rawQuery);
+
+            // 1. Check if data is loaded
+            if (articles.length === 0) {
+                 searchResultsContainer.innerHTML = '<div class="no-results"><p>Article data is not yet loaded or is unavailable.</p></div>';
+                 return;
+            }
+
+            // 2. Minimum query length check
+            if (rawQuery.length < 3) {
+                searchResultsContainer.innerHTML = '<div class="no-results"><p>Please enter at least 3 characters to search.</p></div>';
+                return;
+            }
+            
+            // 3. Tokenize and clean the query
+            const queryWords = rawQuery
+                .split(/\s+/) // Split by one or more spaces
+                .filter(word => word.length > 0 && !STOP_WORDS.includes(word)); // Remove empty strings and stopwords
+
+            // If only stopwords remain after cleaning, use the raw query as the only effective word
+            const effectiveQueryWords = queryWords.length > 0 ? queryWords : [rawQuery];
+
+            // 4. Filter articles (requires all effective query words to be in the title)
+            const filteredResults = articles.filter(article => {
+                const articleTitleLower = article.title.toLowerCase();
+                
+                // Check if ALL effective query words are present in the article title
+                return effectiveQueryWords.every(word => articleTitleLower.includes(word));
+            });
+
+            // 5. Display results
+            if (filteredResults.length === 0) {
+                // Using the safeQueryDisplay variable here prevents XSS if the user enters HTML/script.
+                searchResultsContainer.innerHTML = '<div class="no-results"><p>No results found for "' + safeQueryDisplay + '". Try a different search term.</p></div>';
+                return;
+            }
+
+            filteredResults.forEach(article => {
+                const resultItem = document.createElement('div');
+                resultItem.className = 'result-item';
+                
+                // HTML output only includes the clickable title
+                resultItem.innerHTML = `
+                    <h3 class="result-title">
+                        <a href="${article.url}">${article.title}</a>
+                    </h3>
+                `;
+
+                searchResultsContainer.appendChild(resultItem);
+            });
+        }
+        
+        /**
+         * Event handler for the search form submission.
+         */
+        function handleSearch() {
+            const rawQuery = searchInput.value;
+            
+            // Close the mobile menu after search
+            if (window.innerWidth <= 768) {
+                menuCheckbox.checked = false;
+            }
+
+            // Execute the search logic
+            executeSearch(rawQuery);
+        }
+
+        // --- EVENT LISTENERS ---
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            // Start the data loading and initial search check
+            initializePage(); 
+
+            // Mobile menu toggle logic
+            const checkbox = document.getElementById('menu-toggle-checkbox');
+            
+            // Close menu when a link is clicked (mobile only)
+            const navLinks = document.querySelectorAll('.main-nav a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (window.innerWidth <= 768) {
+                        checkbox.checked = false;
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+
